@@ -30,7 +30,7 @@ if(strcmp( $categoria, "aves") == 0){
 
 $structure = new Structure;
 
-$structure -> header();
+$structure -> header($categoria);
 
 //Mais acessadas
 /*$rand = array_rand($_SESSION['BD'], 4);
@@ -46,7 +46,7 @@ $card10 = $_SESSION['BD'][$rand[3]];*/
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<h2><?= $nomeCategoria ?></h1>
+				<h2><?= $nomeCategoria ?></h2>
 			</div>
 			<?php
 				foreach ($_SESSION['receitas'][$categoria] as $key => $receita) {

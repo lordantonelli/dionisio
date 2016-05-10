@@ -158,15 +158,17 @@ header {
 /* -=-=-=-= Index =-=-=-=-=- */
 section{
 	background-color: $clr-light-green-100;
+	padding-top: 10px;
 
 	.container{
 		background-color: #FFFFFF;
+		box-shadow: 0px 0px 15px #555;
 
 		h2{
 			font-family: $roboto;
 			font-size: 40px;
 			text-align: center;
-			padding: 14px 5px 5px 5px;
+			padding: 40px 5px 5px 5px;
 			border-bottom: 4px dashed $clr-blue-grey-100;
     		color: $clr-blue-grey-800;
 		}
@@ -177,13 +179,80 @@ section{
 	}
 }
 
-#index-sec1{
-	//height: 1000px;
-	padding-top: 10px;
+
+/* -=-=-=-= Detalhes =-=-=-=- */
+#detalhes-sec1{
 
 	.container{
-		padding-bottom: 10px;
-		box-shadow: 0px 0px 15px #555;
+
+		.carousel{
+			width: 300px;
+			
+			.owl-carousel{
+				width: 300px;
+
+				.foto{
+					width: 300px;
+					height: 225px;
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		}
+
+		#form-coment{
+			text-align: right;
+			margin: 15px 0px;
+
+			>textarea{
+				width: 100%;
+				background-color: $clr-blue-grey-50;
+			}
+			
+			>.btn{
+				margin: 5px;
+			}
+		}
+
+		.comentario{
+			padding: 10px;
+			height: 120px;
+			border-top: 2px dashed $clr-grey-400;
+
+			.user{
+				height: 100px;
+				width: 300px;
+				float: left;
+
+				.avatar{
+					width: 70px;
+					display: inline-block;
+
+					img{
+						height: 70px;						
+					}
+				}
+				.dados{
+					width: 220px;
+					display: inline-block;
+
+					.nome{
+
+					}
+					.hora{
+
+					}
+				}
+
+			}/* .user */
+			.text{
+				width: Calc(100% - 300px);
+				float: right;
+				display: inline-block;
+
+			}
+
+		}
 	}
 }
 

@@ -37,7 +37,7 @@ class Structure{
 		}
 	}
 
-	public function header(){
+	public function header($categoria = ''){
 
 	?>
 		<!doctype html>
@@ -59,6 +59,8 @@ class Structure{
 			    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,500,700' rel='stylesheet' type='text/css'>
 			    <link rel="stylesheet" href="bin/css/style.css">
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+			    <link rel="stylesheet" href="bin/plugin/owl_carousel/assets/owl.carousel.css">
+			    
 			    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,400italic,300italic' rel='stylesheet' type='text/css'> -->
 
 			</head>
@@ -89,7 +91,7 @@ class Structure{
 		    			</div>
 	    			</div>
 	    			<nav class="navbar" data-spy="affix" data-offset-top="135">
-	    				<div class="container" id="nav-container">
+	    				<div class="container <?= $categoria ?>" id="nav-container">
 	    					<div class="navbar-header">
 							    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-list">
 								    <span class="icon-bar"></span>
@@ -113,6 +115,16 @@ class Structure{
 				    </nav>
 			    </header>
 	<?php
+	}
+
+	public function buscaReceita($id){
+		foreach ($_SESSION['BD'] as $key => $value) {
+			if(strcmp($id, $value->id)){
+				return $value;
+				break;
+			}
+		}
+		return false;
 	}
 
 	// 1 - Pequeno 2- Grande
@@ -169,7 +181,7 @@ class Structure{
 	<?php
 	}//Fim generateCard
 
-	public function footer(){
+	public function footer($carousel = false){
 	?>
 				<footer>
 					<div class="container">
@@ -206,6 +218,25 @@ class Structure{
 
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+				
+				<?php
+				if($carousel){ ?>
+					<script src="bin/plugin/owl_carousel/owl.carousel.js"></script>
+					<script>
+						jQuery(document).ready(function(){
+							jQuery('.owl-carousel').owlCarousel({
+							    loop:true,
+							    margin:10,
+							    dots: true,
+							    nav:false,
+							    items: 1
+							});	
+						});
+					</script>
+
+				<?php
+				} ?>
+
 				<script>
 					function navColor(classe){
 
@@ -227,6 +258,7 @@ class Structure{
 					navColor('frutos');
 					navColor('massas');
 				</script>
+
 			</body>
 		</html> 
 
