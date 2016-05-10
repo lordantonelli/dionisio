@@ -504,6 +504,13 @@ section{
 		background-position: center;
 		border-bottom: $clr-blue-grey-400 5px solid;
 		height: 200px;
+
+		>span{
+			word-wrap: break-word;
+			height: 30px;
+			background-color: red;
+			
+		}
 	}
 
 	.card-descricao{

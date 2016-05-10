@@ -188,7 +188,7 @@ class Structure{
 					<p><?= $nomeCategoria ?></p>
 				</div>
 				<div class="card-img" style="background-image: url('<?= $foto ?>)">
-
+					<span>Guilherme potenciano</span>
 				</div>
 				<div class="card-descricao">
 					<div class="titulo"><?= $dados->name ?></div>
