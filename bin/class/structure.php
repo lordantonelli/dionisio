@@ -73,24 +73,49 @@ class Structure{
 		    		<!-- <div class="borda-grega"></div> -->
 		    		<div id="header-banner" >
 		    			<div class="container">
-		    				<h1 class="logo">Divinas Receitas</h1>
-		    				<form class="navbar-form navbar-right" role="search">
-			    				<div class="form-group">
-			    					<input list="Receitas" type="text" placeholder="Digite o nome da receita" class="form-control" id="">
-									<datalist id="Receitas">
-										<?php
-											foreach ($_SESSION['receitas'] as $cat => $receita) {
-												if($cat != 'rapidas' && $cat != 'melhores'){
-													foreach ($receita as $key => $value) {
-														echo '<option value="'.trim($value->name).'">';
+		    				<div class="row">
+		    					<div  class="col-md-6">
+		    						<h1 class="logo">Divinas Receitas</h1>
+		    					</div>
+		    					<div class="col-md-6">
+		    					<!--
+		    						<form role="search">
+					    				<div class="input-group">
+					    					<input list="Receitas" type="text" placeholder="Digite o nome da receita..." class="form-control" id="">
+											<datalist id="Receitas">
+												<?php
+													foreach ($_SESSION['receitas'] as $cat => $receita) {
+														if($cat != 'rapidas' && $cat != 'melhores'){
+															foreach ($receita as $key => $value) {
+																echo '<option value="'.trim($value->name).'">';
+															}
+														}
 													}
-												}
-											}
-										?>
-									</datalist>
-			    				</div>
-			    				<button type="submit" class="btn btn-default">Procurar</button>
-			    			</form>
+												?>
+											</datalist>
+					    					<span class="input-group-btn">
+					    						<button type="submit" class="btn btn-default">Procurar</button>
+					    					</span>
+					    				</div>
+					    			</form>
+					    			-->
+					    			<form class="form-wrapper cf" role="search">
+								        <input list="Receitas" type="text" placeholder="Digite o nome da receita..." class="col-md-9">
+								        <datalist id="Receitas">
+												<?php
+													foreach ($_SESSION['receitas'] as $cat => $receita) {
+														if($cat != 'rapidas' && $cat != 'melhores'){
+															foreach ($receita as $key => $value) {
+																echo '<option value="'.trim($value->name).'">';
+															}
+														}
+													}
+												?>
+											</datalist>
+								        <button type="submit" class="col-md-3">Procurar</button>
+								    </form>  
+		    					</div>
+		    				</div>
 		    			</div>
 	    			</div>
 	    			<nav class="navbar" data-spy="affix" data-offset-top="135">
