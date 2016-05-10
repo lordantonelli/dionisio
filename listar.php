@@ -1,27 +1,36 @@
 <?php
 session_start();
-session_unset();
 
 include('./bin/class/structure.php');
 
+if(!empty($_REQUEST['categoria'])){
+	$categoria = $_REQUEST['categoria'];
+}else{
+	$categoria = "aves";
+}
+
+if(strcmp( $categoria, "aves") == 0){
+	$nomeCategoria = "Aves";
+}elseif(strcmp($categoria, "bolos") == 0){
+	$nomeCategoria = "Bolos e tortas";
+
+}elseif(strcmp($categoria, "carnes") == 0){
+	$nomeCategoria = "Carnes";
+
+}elseif(strcmp($categoria, "doces") == 0){
+	$nomeCategoria = "Doces";
+
+}elseif(strcmp($categoria, "frutos") == 0){
+	$nomeCategoria = "Frutos do mar";
+
+}elseif(strcmp($categoria, "massas") == 0){
+	$nomeCategoria = "Massas";
+
+}
 
 $structure = new Structure;
 
 $structure -> header();
-//print_r($_SESSION['receitas']['melhores']);
-
-//Melhores
-$rand = array_rand($_SESSION['receitas']['melhores'], 3);
-$card1 = $_SESSION['receitas']['melhores'][$rand[0]];
-$card2 = $_SESSION['receitas']['melhores'][$rand[1]];
-$card3 = $_SESSION['receitas']['melhores'][$rand[2]];
-
-//Rapidas
-$rand = array_rand($_SESSION['receitas']['rapidas'], 3);
-$card4 = $_SESSION['receitas']['rapidas'][$rand[0]];
-$card5 = $_SESSION['receitas']['rapidas'][$rand[1]];
-$card6 = $_SESSION['receitas']['rapidas'][$rand[2]];
-
 
 //Mais acessadas
 $rand = array_rand($_SESSION['BD'], 4);
@@ -37,10 +46,10 @@ $card10 = $_SESSION['BD'][$rand[3]];
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<h2>Aves</h1>
+				<h2><?= $nomeCategoria ?></h1>
 			</div>
 			<?php
-				foreach ($_SESSION['receitas']['aves'] as $key => $receita) {
+				foreach ($_SESSION['receitas'][$categoria] as $key => $receita) {
 					echo '<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">';
 					$structure->generateCard(1, $receita);
 					echo '</div>';

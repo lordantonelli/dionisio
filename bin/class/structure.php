@@ -83,12 +83,12 @@ class Structure{
 						    </div>
 				    		<div class="collapse navbar-collapse" id="navbar-list">
 				    			<ul class="nav navbar-nav">
-				    				<li class="aves"><a href="lista.php?categoria=aves">AVES</a></li>
-				    				<li class="bolos"><a href="lista.php?categoria=bolos" >BOLOS E TORTAS</a></li>
-				    				<li class="carnes"><a href="lista.php?categoria=carnes">CARNES</a></li>
-				    				<li class="doces"><a href="lista.php?categoria=doces" >DOCES</a></li>
-				    				<li class="frutos"><a href="lista.php?categoria=frutos">FRUTOS DO MAR</a></li>
-				    				<li class="massas"><a href="lista.php?categoria=massas">MASSAS</a></li>
+				    				<li class="aves"><a href="listar.php?categoria=aves">AVES</a></li>
+				    				<li class="bolos"><a href="listar.php?categoria=bolos" >BOLOS E TORTAS</a></li>
+				    				<li class="carnes"><a href="listar.php?categoria=carnes">CARNES</a></li>
+				    				<li class="doces"><a href="listar.php?categoria=doces" >DOCES</a></li>
+				    				<li class="frutos"><a href="listar.php?categoria=frutos">FRUTOS DO MAR</a></li>
+				    				<li class="massas"><a href="listar.php?categoria=massas">MASSAS</a></li>
 				    			</ul>
 				    			<form class="navbar-form navbar-right" role="search">
 				    				<div class="form-group">
@@ -138,14 +138,14 @@ class Structure{
 
 		}
 
-		$foto = $dados['images'][0]['link'];
+		$foto = $dados->images[0]->link;
 		
 	?>
 		<div class="card-receita <?=($tamanho == 1 ? "card-pequeno" : "card-grande") ?> card-<?= $categoria ?>">
 			<div class="card-tab">
 				<p><?= $nomeCategoria ?></p>
 			</div>
-			<div class="card-img" style="background-image: url('<?= $dados['images'][0]['link'] ?>)">
+			<div class="card-img" style="background-image: url('<?= $foto ?>)">
 
 			</div>
 			<div class="card-descricao">
@@ -174,12 +174,12 @@ class Structure{
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 								<h2>Categorias</h2>
 								<ul>
-									<li><a href="lista.php?categoria=aves"  >AVES</a></li>
-				    				<li><a href="lista.php?categoria=bolos" >BOLOS E TORTAS</a></li>
-				    				<li><a href="lista.php?categoria=carnes">CARNES</a></li>
-				    				<li><a href="lista.php?categoria=doces" >DOCES</a></li>
-				    				<li><a href="lista.php?categoria=frutos">FRUTOS DO MAR</a></li>
-				    				<li><a href="lista.php?categoria=massas">MASSAS</a></li>
+									<li><a href="listar.php?categoria=aves"  >AVES</a></li>
+				    				<li><a href="listar.php?categoria=bolos" >BOLOS E TORTAS</a></li>
+				    				<li><a href="listar.php?categoria=carnes">CARNES</a></li>
+				    				<li><a href="listar.php?categoria=doces" >DOCES</a></li>
+				    				<li><a href="listar.php?categoria=frutos">FRUTOS DO MAR</a></li>
+				    				<li><a href="listar.php?categoria=massas">MASSAS</a></li>
 								</ul>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
