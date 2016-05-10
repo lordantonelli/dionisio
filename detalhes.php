@@ -45,10 +45,11 @@ $structure -> header($receita->class);
 									echo '<div class="foto" style="background-image: url('.$value->link.'" > </div>';
 								}
 							?>
-								
 							</div>
 						</div>
-						
+						<div class="dados-receita">
+
+						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<h2>Ingredientes</h2>
