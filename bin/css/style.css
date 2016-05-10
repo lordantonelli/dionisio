@@ -1,0 +1,306 @@
+body {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif; }
+
+/* -=-=-=-= Nav Bar =-=-=-=-=- */
+header {
+  background-color: #37474f;
+  /* nav */ }
+  header #header-banner {
+    height: 150px;
+    margin-bottom: -10px; }
+    header #header-banner .logo {
+      color: #FFFFFF;
+      font-size: 50px;
+      font-family: "Roboto", sans-serif; }
+  header nav {
+    border-top: 0px !important;
+    border-bottom: 0px solid transparent !important;
+    border-radius: 0px !important;
+    margin-bottom: 0px !important;
+    background: transparent !important;
+    max-height: 50px !important;
+    color: #FFFFFF;
+    /* nav-container*/ }
+    header nav.affix {
+      position: fixed;
+      top: 0px;
+      width: 100%;
+      z-index: 999; }
+      header nav.affix #nav-container {
+        top: 0px; }
+    header nav #nav-container {
+      padding-top: 10px;
+      background-color: #37474f;
+      border-bottom: 10px solid #78909c;
+      transition: border-color 0.3s;
+      position: relative;
+      top: -10px;
+      /* ul */ }
+      header nav #nav-container.aves {
+        border-bottom-color: #ff5722; }
+      header nav #nav-container.bolos {
+        border-bottom-color: #795548; }
+      header nav #nav-container.carnes {
+        border-bottom-color: #f44336; }
+      header nav #nav-container.frutos {
+        border-bottom-color: #2196f3; }
+      header nav #nav-container.massas {
+        border-bottom-color: #009688; }
+      header nav #nav-container.doces {
+        border-bottom-color: #9c27b0; }
+      header nav #nav-container ul {
+        /* li*/ }
+        header nav #nav-container ul li {
+          border-radius: 10px 10px 0px 0px;
+          margin-right: 2px;
+          margin-left: 2px;
+          position: relative;
+          /* a */ }
+          header nav #nav-container ul li a {
+            position: relative;
+            color: #FFFFFF;
+            font-size: 2rem;
+            font-weight: 700; }
+            header nav #nav-container ul li a:hover, header nav #nav-container ul li a:focus {
+              color: #FFFFFF !important;
+              background-color: transparent !important; }
+          header nav #nav-container ul li.aves {
+            background-color: #ff5722;
+            transition: border-weight 0.5s; }
+          header nav #nav-container ul li.bolos {
+            background-color: #795548; }
+          header nav #nav-container ul li.carnes {
+            background-color: #f44336; }
+          header nav #nav-container ul li.frutos {
+            background-color: #2196f3; }
+          header nav #nav-container ul li.massas {
+            background-color: #009688; }
+          header nav #nav-container ul li.doces {
+            background-color: #9c27b0; }
+      header nav #nav-container .form-group .form-control {
+        border: 1px solid #61a592;
+        border-radius: 0px; }
+
+/* header */
+/* -=-=-=-= Index =-=-=-=-=- */
+section {
+  background-color: #dcedc8; }
+  section .container {
+    background-color: #FFFFFF; }
+    section .container h2 {
+      font-family: "Roboto", sans-serif;
+      font-size: 40px;
+      text-align: center;
+      padding: 14px 5px 5px 5px;
+      border-bottom: 4px dashed #cfd8dc;
+      color: #37474f; }
+    section .container .blue-grey-border {
+      border-right: 4px dashed #607d8b; }
+
+#index-sec1 {
+  padding-top: 10px; }
+  #index-sec1 .container {
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 15px #555; }
+
+/* -=-=-=-= Cards =-=-=-=- */
+.card-receita {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+  background-color: #EEEEEE;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden; }
+  .card-receita:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .card-receita .card-tab {
+    height: 30px;
+    background-color: #78909c;
+    background-image: url("../../images/pattern.png");
+    background-size: cover;
+    text-align: center;
+    padding: 2px; }
+    .card-receita .card-tab p {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #FFFFFF; }
+  .card-receita.card-aves {
+    background-color: #fbe9e7; }
+    .card-receita.card-aves .card-tab {
+      background-color: #ff5722; }
+    .card-receita.card-aves .card-img {
+      border-color: #ff5722; }
+    .card-receita.card-aves .card-descricao {
+      color: #d84315; }
+      .card-receita.card-aves .card-descricao .titulo {
+        border-color: #ffccbc; }
+      .card-receita.card-aves .card-descricao .descricao .rendimento {
+        border-color: #ffccbc; }
+  .card-receita.card-bolos {
+    background-color: #efebe9; }
+    .card-receita.card-bolos .card-tab {
+      background-color: #795548; }
+    .card-receita.card-bolos .card-img {
+      border-color: #795548; }
+    .card-receita.card-bolos .card-descricao {
+      color: #4e342e; }
+      .card-receita.card-bolos .card-descricao .titulo {
+        border-color: #d7ccc8; }
+      .card-receita.card-bolos .card-descricao .descricao .rendimento {
+        border-color: #d7ccc8; }
+  .card-receita.card-carnes {
+    background-color: #ffebee; }
+    .card-receita.card-carnes .card-tab {
+      background-color: #f44336; }
+    .card-receita.card-carnes .card-img {
+      border-color: #f44336; }
+    .card-receita.card-carnes .card-descricao {
+      color: #c62828; }
+      .card-receita.card-carnes .card-descricao .titulo {
+        border-color: #ffcdd2; }
+      .card-receita.card-carnes .card-descricao .descricao .rendimento {
+        border-color: #ffcdd2; }
+  .card-receita.card-frutos {
+    background-color: #e3f2fd; }
+    .card-receita.card-frutos .card-tab {
+      background-color: #2196f3; }
+    .card-receita.card-frutos .card-img {
+      border-color: #2196f3; }
+    .card-receita.card-frutos .card-descricao {
+      color: #1565c0; }
+      .card-receita.card-frutos .card-descricao .titulo {
+        border-color: #bbdefb; }
+      .card-receita.card-frutos .card-descricao .descricao .rendimento {
+        border-color: #bbdefb; }
+  .card-receita.card-massas {
+    background-color: #e0f2f1; }
+    .card-receita.card-massas .card-tab {
+      background-color: #009688; }
+    .card-receita.card-massas .card-img {
+      border-color: #009688; }
+    .card-receita.card-massas .card-descricao {
+      color: #00695c; }
+      .card-receita.card-massas .card-descricao .titulo {
+        border-color: #b2dfdb; }
+      .card-receita.card-massas .card-descricao .descricao .rendimento {
+        border-color: #b2dfdb; }
+  .card-receita.card-doces {
+    background-color: #f3e5f5; }
+    .card-receita.card-doces .card-tab {
+      background-color: #9c27b0; }
+    .card-receita.card-doces .card-img {
+      border-color: #9c27b0; }
+    .card-receita.card-doces .card-descricao {
+      color: #6a1b9a; }
+      .card-receita.card-doces .card-descricao .titulo {
+        border-color: #e1bee7; }
+      .card-receita.card-doces .card-descricao .descricao .rendimento {
+        border-color: #e1bee7; }
+
+.card-grande {
+  width: 100%;
+  height: 410px; }
+  .card-grande .card-img {
+    background-size: cover;
+    background-position: center;
+    border-bottom: #78909c 5px solid;
+    height: 200px; }
+  .card-grande .card-descricao {
+    height: 180px; }
+    .card-grande .card-descricao .titulo {
+      font-size: 2.5rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px;
+      height: 85px;
+      border-bottom: 1px dashed #cfd8dc; }
+    .card-grande .card-descricao .descricao {
+      width: 100%;
+      height: 95px;
+      display: inline-table;
+      padding: 10px 5px 5px 5px;
+      font-size: 2.5rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500; }
+      .card-grande .card-descricao .descricao .rendimento {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        text-align: center;
+        border-right: 1px dashed #cfd8dc; }
+      .card-grande .card-descricao .descricao .tempo {
+        width: 50%;
+        display: inline-block;
+        text-align: center; }
+
+.card-pequeno {
+  height: 200px;
+  margin-bottom: 10px; }
+  .card-pequeno .card-img {
+    width: 50%;
+    height: 170px;
+    float: left;
+    background-size: cover;
+    background-position: center;
+    border-right: 3px solid #78909c; }
+  .card-pequeno .card-descricao {
+    height: 170px;
+    width: 50%;
+    float: right; }
+    .card-pequeno .card-descricao .titulo {
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 5px;
+      height: 85px;
+      border-bottom: 1px dashed #cfd8dc; }
+    .card-pequeno .card-descricao .descricao {
+      width: 100%;
+      padding: 10px 5px 5px 5px;
+      display: inline-table;
+      height: 85px;
+      font-size: 1.6rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500; }
+      .card-pequeno .card-descricao .descricao .rendimento {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        text-align: center;
+        border-right: 1px dashed #cfd8dc; }
+        .card-pequeno .card-descricao .descricao .rendimento i {
+          font-size: 2.5rem; }
+      .card-pequeno .card-descricao .descricao .tempo {
+        width: 50%;
+        display: inline-block;
+        text-align: center; }
+        .card-pequeno .card-descricao .descricao .tempo i {
+          font-size: 2.5rem; }
+
+footer {
+  box-shadow: 0px 0px 15px #555;
+  background-color: #607d8b;
+  color: #FFFFFF;
+  height: 300px; }
+  footer .container {
+    height: 250px; }
+    footer .container ul {
+      list-style: none; }
+      footer .container ul li a {
+        color: #FFFFFF;
+        font-weight: 500;
+        font-size: 1.7rem; }
+  footer .container-fluid {
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #78909c;
+    box-shadow: 0px 0px 15px #555; }
+    footer .container-fluid p {
+      font-size: 1.7rem; }
+
+/*# sourceMappingURL=style.css.map */
