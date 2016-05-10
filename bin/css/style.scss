@@ -231,9 +231,46 @@ section{
 
 		.dados-receita{
 			width: calc(100% - 310px);
-			height: 200px;
-			background-color: red;
+			height: 270px;
 			float: right;
+
+			.descricao{
+				height: 270px;
+
+				.rendimento{
+					width: 50%;
+					display: inline-block;
+					height: 100px;
+					text-align: center;
+					font-size: 2.5rem;
+					font-family: $roboto;
+					font-weight: 500;
+
+					p{
+						margin-bottom: 0px;
+						&.titulo{
+							font-size: 1.7rem;
+						}
+					}
+				}
+				.tempo{
+					width: 49%;
+    				display: inline-block;
+    				height: 100px;
+					text-align: center;
+					font-size: 2.5rem;
+					font-family: $roboto;
+					font-weight: 500;
+
+					p{
+						margin-bottom: 0px;
+
+						&.titulo{
+							font-size: 1.7rem;
+						}
+					}
+				}
+			}
 		}
 
 		#form-coment{

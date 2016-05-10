@@ -1,6 +1,6 @@
 <?php
 
-define("__SITE_NAME__", "http://localhost/siade/dionisio/");
+define("__SITE_NAME__", "http://localhost/dionisio/");
 
 class Structure{
 

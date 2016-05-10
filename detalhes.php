@@ -48,7 +48,18 @@ $structure -> header($receita->class);
 							</div>
 						</div>
 						<div class="dados-receita">
-
+							<div class="descricao">
+								<div class="rendimento">
+									<i class="fa fa-cutlery" aria-hidden="true"></i>
+									<p class="titulo">Rendimento</p>
+									<p><?= $receita->recipeYield->human ?></p>
+								</div>
+								<div class="tempo">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<p class="titulo">Preparo</p>
+									<p><?= $receita->totalTime->human  ?></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

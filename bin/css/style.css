@@ -130,9 +130,34 @@ section {
           background-color: #37474f; }
   #detalhes-sec1 .container .dados-receita {
     width: calc(100% - 310px);
-    height: 200px;
-    background-color: red;
+    height: 270px;
     float: right; }
+    #detalhes-sec1 .container .dados-receita .descricao {
+      height: 270px; }
+      #detalhes-sec1 .container .dados-receita .descricao .rendimento {
+        width: 50%;
+        display: inline-block;
+        height: 100px;
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500; }
+        #detalhes-sec1 .container .dados-receita .descricao .rendimento p {
+          margin-bottom: 0px; }
+          #detalhes-sec1 .container .dados-receita .descricao .rendimento p.titulo {
+            font-size: 1.7rem; }
+      #detalhes-sec1 .container .dados-receita .descricao .tempo {
+        width: 49%;
+        display: inline-block;
+        height: 100px;
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: "Roboto", sans-serif;
+        font-weight: 500; }
+        #detalhes-sec1 .container .dados-receita .descricao .tempo p {
+          margin-bottom: 0px; }
+          #detalhes-sec1 .container .dados-receita .descricao .tempo p.titulo {
+            font-size: 1.7rem; }
   #detalhes-sec1 .container #form-coment {
     text-align: right;
     margin: 15px 0px; }
