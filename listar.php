@@ -33,16 +33,16 @@ $structure = new Structure;
 $structure -> header();
 
 //Mais acessadas
-$rand = array_rand($_SESSION['BD'], 4);
+/*$rand = array_rand($_SESSION['BD'], 4);
 $card7 = $_SESSION['BD'][$rand[0]];
 $card8 = $_SESSION['BD'][$rand[1]];
 $card9 = $_SESSION['BD'][$rand[2]];
-$card10 = $_SESSION['BD'][$rand[3]];
+$card10 = $_SESSION['BD'][$rand[3]];*/
 
 //print_r($card1);
 ?>
 
-<section id="index-sec1">
+<section>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

@@ -69,6 +69,23 @@ class Structure{
 		    		<div id="header-banner" >
 		    			<div class="container">
 		    				<h1 class="logo">Divinas Receitas</h1>
+		    				<form class="navbar-form navbar-right" role="search">
+			    				<div class="form-group">
+			    					<input list="Receitas" type="text" placeholder="Digite o nome da receita" class="form-control" id="">
+									<datalist id="Receitas">
+										<?php
+											foreach ($_SESSION['receitas'] as $cat => $receita) {
+												if($cat != 'rapidas' && $cat != 'melhores'){
+													foreach ($receita as $key => $value) {
+														echo '<option value="'.trim($value->name).'">';
+													}
+												}
+											}
+										?>
+									</datalist>
+			    				</div>
+			    				<button type="submit" class="btn btn-default">Procurar</button>
+			    			</form>
 		    			</div>
 	    			</div>
 	    			<nav class="navbar" data-spy="affix" data-offset-top="135">
@@ -77,12 +94,13 @@ class Structure{
 							    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-list">
 								    <span class="icon-bar"></span>
 								    <span class="icon-bar"></span>
-								    <span class="icon-bar"></span> 
+								    <span class="icon-bar"></span>
 							    </button>
 							    <!-- <a class="navbar-brand" href="#">WebSiteName</a> -->
 						    </div>
 				    		<div class="collapse navbar-collapse" id="navbar-list">
 				    			<ul class="nav navbar-nav">
+				    				<li class="home"><a href="index.php">HOME</a></li>
 				    				<li class="aves"><a href="listar.php?categoria=aves">AVES</a></li>
 				    				<li class="bolos"><a href="listar.php?categoria=bolos" >BOLOS E TORTAS</a></li>
 				    				<li class="carnes"><a href="listar.php?categoria=carnes">CARNES</a></li>
@@ -90,23 +108,6 @@ class Structure{
 				    				<li class="frutos"><a href="listar.php?categoria=frutos">FRUTOS DO MAR</a></li>
 				    				<li class="massas"><a href="listar.php?categoria=massas">MASSAS</a></li>
 				    			</ul>
-				    			<form class="navbar-form navbar-right" role="search">
-				    				<div class="form-group">
-				    					<input list="Receitas" type="text" placeholder="Digite o nome da receita" class="form-control" id="">
-										<datalist id="Receitas">
-											<?php
-												foreach ($_SESSION['receitas'] as $cat => $receita) {
-													if($cat != 'rapidas' && $cat != 'melhores'){
-														foreach ($receita as $key => $value) {
-															echo '<option value="'.trim($value->name).'">';
-														}
-													}
-												}
-											?>
-										</datalist>
-				    				</div>
-				    				<button type="submit" class="btn btn-default">Procurar</button>
-				    			</form>
 				    		</div><!-- /.navbar-collapse -->
 				    	</div><!-- /container -->
 				    </nav>
@@ -142,25 +143,27 @@ class Structure{
 		
 	?>
 		<div class="card-receita <?=($tamanho == 1 ? "card-pequeno" : "card-grande") ?> card-<?= $categoria ?>">
-			<div class="card-tab">
-				<p><?= $nomeCategoria ?></p>
-			</div>
-			<div class="card-img" style="background-image: url('<?= $foto ?>)">
+			<a href="/detalhes.php?">
+				<div class="card-tab">
+					<p><?= $nomeCategoria ?></p>
+				</div>
+				<div class="card-img" style="background-image: url('<?= $foto ?>)">
 
-			</div>
-			<div class="card-descricao">
-				<div class="titulo"><?= $dados->name ?></div>
-				<div class="descricao">
-					<div class="rendimento">
-						<i class="fa fa-cutlery" aria-hidden="true"></i>
-						<p><?= $dados->recipeYield->human ?></p>
-					</div>
-					<div class="tempo">
-						<i class="fa fa-clock-o" aria-hidden="true"></i>
-						<p><?= $dados->totalTime->human  ?></p>
+				</div>
+				<div class="card-descricao">
+					<div class="titulo"><?= $dados->name ?></div>
+					<div class="descricao">
+						<div class="rendimento">
+							<i class="fa fa-cutlery" aria-hidden="true"></i>
+							<p><?= $dados->recipeYield->human ?></p>
+						</div>
+						<div class="tempo">
+							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<p><?= $dados->totalTime->human  ?></p>
+						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 		</div>
 
 	<?php

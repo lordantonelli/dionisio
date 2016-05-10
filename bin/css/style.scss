@@ -83,6 +83,7 @@ header {
 					margin-right: 2px;
 					margin-left: 2px;
 					position: relative;
+					background-color: $clr-blue-grey-400;
 					
 					a{
 						position: relative;
@@ -99,7 +100,6 @@ header {
 
 					&.aves{
 						background-color: $clr-deep-orange;
-						transition: border-weight 0.5s;
 
 						&:hover{
 							
@@ -198,9 +198,13 @@ section{
 	overflow: hidden;
 
 	&:hover {
-	  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-	  -moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-	  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		-moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+		-webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+	 	a:hover{
+	 		text-decoration: none;
+	 	}
 	}
 
 	.card-tab{
