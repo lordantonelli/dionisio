@@ -391,3 +391,111 @@ footer {
       font-size: 1.7rem; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+
+.cf:after{
+    clear:both;
+}
+
+.cf{
+    zoom:1;
+}   
+
+
+/* Form wrapper styling */
+.form-wrapper {
+    margin-top: 15px;
+    padding: 10px;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+
+/* Form text input */
+
+.form-wrapper input {
+    padding: 6px 10px;
+    float: left;    
+    font-size: 1.6rem;
+    border: 0;
+    background: #eee;
+    border-radius: 3px 0 0 3px;  
+    height: 35px!important;    
+}
+
+.form-wrapper input:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+
+.form-wrapper input::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+
+.form-wrapper input:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.form-wrapper input:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}    
+
+/* Form submit button */
+.form-wrapper button {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 35px!important;
+    font-size: 2rem;
+    color: #fff;
+    background: #d83c3c;
+    border-radius: 0 3px 3px 0;
+}   
+  
+.form-wrapper button:hover{   
+    background: #e54040;
+} 
+  
+.form-wrapper button:active,
+.form-wrapper button:focus{   
+    background: #c42f2f;
+  outline: 0;   
+}
+
+.form-wrapper button:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #d83c3c transparent;
+    top: 10px;
+    left: -7px;
+}
+
+.form-wrapper button:hover:before{
+    border-right-color: #e54040;
+}
+
+.form-wrapper button:focus:before,
+.form-wrapper button:active:before{
+        border-right-color: #c42f2f;
+}      
+
+.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+} 
