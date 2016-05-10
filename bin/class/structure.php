@@ -100,7 +100,7 @@ class Structure{
 					    			</form>
 					    			-->
 					    			<form class="form-wrapper cf" role="search">
-								        <input list="Receitas" type="text" placeholder="Digite o nome da receita..." class="col-md-9">
+								        <input list="Receitas" type="text" title="Digite o nome da receita" placeholder="Digite o nome da receita..." class="col-md-9">
 								        <datalist id="Receitas">
 												<?php
 													foreach ($_SESSION['receitas'] as $cat => $receita) {
@@ -194,11 +194,11 @@ class Structure{
 					<div class="titulo"><?= $dados->name ?></div>
 					<div class="descricao">
 						<div class="rendimento">
-							<i class="fa fa-cutlery" aria-hidden="true"></i>
+							<span class="fa fa-cutlery" aria-hidden="true"></span>
 							<p><?= $dados->recipeYield->human ?></p>
 						</div>
 						<div class="tempo">
-							<i class="fa fa-clock-o" aria-hidden="true"></i>
+							<span class="fa fa-clock-o" aria-hidden="true"></span>
 							<p><?= $dados->totalTime->human  ?></p>
 						</div>
 					</div>
