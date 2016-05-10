@@ -112,13 +112,14 @@ section {
   border-radius: 5px;
   background-color: #EEEEEE;
   transition: all 0.2s ease-in-out;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 25px 5px 0px 5px; }
   .card-receita:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-    .card-receita:hover a:hover {
-      text-decoration: none; }
+  .card-receita a:hover, .card-receita a:focus {
+    text-decoration: none; }
   .card-receita .card-tab {
     height: 30px;
     background-color: #78909c;

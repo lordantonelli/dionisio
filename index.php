@@ -39,7 +39,7 @@ $card10 = $_SESSION['BD'][$rand[3]];
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 blue-grey-border">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<h2>Destaques</h1>
+						<h2>Destaques</h2>
 					</div>
 					<div class="col-md-6 col-lg-6">
 						<?php
@@ -55,7 +55,7 @@ $card10 = $_SESSION['BD'][$rand[3]];
 				</div>
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<h2>Receitas rapidas</h1>
+						<h2>Receitas rapidas</h2>
 					</div>
 					<div class="col-md-6 col-lg-6">
 						<?php
@@ -72,13 +72,19 @@ $card10 = $_SESSION['BD'][$rand[3]];
 			</div>
 			<div class="hidden-xs hidden-sm col-md-4 col-lg-4">
 				<aside>
-					<h2>Mais acessados</h1>
-					<?php
-						$structure->generateCard(1, $card7);
-						$structure->generateCard(1, $card8);
-						$structure->generateCard(1, $card9);
-						$structure->generateCard(1, $card10);
-					?>				
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h2>Mais acessados</h2>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<?php
+								$structure->generateCard(1, $card7);
+								$structure->generateCard(1, $card8);
+								$structure->generateCard(1, $card9);
+								$structure->generateCard(1, $card10);
+							?>
+						</div>
+					</div>		
 				</aside>
 			</div>
 		</div>
