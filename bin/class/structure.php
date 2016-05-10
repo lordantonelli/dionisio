@@ -183,7 +183,7 @@ class Structure{
 		
 	?>
 		<div class="card-receita <?=($tamanho == 1 ? "card-pequeno" : "card-grande") ?> card-<?= $categoria ?>">
-			<a href="/detalhes.php?">
+			<a href="<?= __SITE_NAME__ ?>receita/<?= $dados->id ?>/<?= $this->toAscii($dados->name)?>">
 				<div class="card-tab">
 					<p><?= $nomeCategoria ?></p>
 				</div>
@@ -291,6 +291,14 @@ class Structure{
 		</html> 
 
 	<?php
+	}
+
+	public function toAscii($str) {
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', trim($str));
+		$clean = strtolower(trim($clean, '-'));
+		$clean = preg_replace("/[\/_|+ -]+/", '-', $clean);
+
+		return $clean;
 	}
 }
 ?>
