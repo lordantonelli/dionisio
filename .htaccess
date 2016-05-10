@@ -10,3 +10,7 @@ RewriteCond %{HTTP_REFERER} !^$
 RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
 
 RewriteRule ^categoria/([a-z]+)/?$ listar.php?categoria=$1
+
+RewriteRule ^receita/([0-9]+)/([a-zA-Z0-9_-])+/?$ detalhes.php?id=$1
+
+
