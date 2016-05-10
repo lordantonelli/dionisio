@@ -1,6 +1,9 @@
 <?php
+
+define("__SITE_NAME__", "http://localhost/siade/dionisio/");
+
 class Structure{
-	
+
 	function Structure(){
 		if(empty($_SESSION['receitas'])){
 			$receitas = json_decode(file_get_contents("BDreceitas.json"));
@@ -57,9 +60,9 @@ class Structure{
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 			    <link href='https://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
 			    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,500,700' rel='stylesheet' type='text/css'>
-			    <link rel="stylesheet" href="bin/css/style.css">
+			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/css/style.css">
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-			    <link rel="stylesheet" href="bin/plugin/owl_carousel/assets/owl.carousel.css">
+			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/plugin/owl_carousel/assets/owl.carousel.css">
 			    
 			    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,400italic,300italic' rel='stylesheet' type='text/css'> -->
 
@@ -102,13 +105,13 @@ class Structure{
 						    </div>
 				    		<div class="collapse navbar-collapse" id="navbar-list">
 				    			<ul class="nav navbar-nav">
-				    				<li class="home"><a href="index.php">HOME</a></li>
-				    				<li class="aves"><a href="listar.php?categoria=aves">AVES</a></li>
-				    				<li class="bolos"><a href="listar.php?categoria=bolos" >BOLOS E TORTAS</a></li>
-				    				<li class="carnes"><a href="listar.php?categoria=carnes">CARNES</a></li>
-				    				<li class="doces"><a href="listar.php?categoria=doces" >DOCES</a></li>
-				    				<li class="frutos"><a href="listar.php?categoria=frutos">FRUTOS DO MAR</a></li>
-				    				<li class="massas"><a href="listar.php?categoria=massas">MASSAS</a></li>
+				    				<li class="home"><a href="<?= __SITE_NAME__ ?>">HOME</a></li>
+				    				<li class="aves"><a href="<?= __SITE_NAME__ ?>categoria/aves">AVES</a></li>
+				    				<li class="bolos"><a href="<?= __SITE_NAME__ ?>categoria/bolos" >BOLOS E TORTAS</a></li>
+				    				<li class="carnes"><a href="<?= __SITE_NAME__ ?>categoria/carnes">CARNES</a></li>
+				    				<li class="doces"><a href="<?= __SITE_NAME__ ?>categoria/doces" >DOCES</a></li>
+				    				<li class="frutos"><a href="<?= __SITE_NAME__ ?>categoria/frutos">FRUTOS DO MAR</a></li>
+				    				<li class="massas"><a href="<?= __SITE_NAME__ ?>categoria/massas">MASSAS</a></li>
 				    			</ul>
 				    		</div><!-- /.navbar-collapse -->
 				    	</div><!-- /container -->
@@ -189,12 +192,12 @@ class Structure{
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 								<h2>Categorias</h2>
 								<ul>
-									<li><a href="listar.php?categoria=aves"  >AVES</a></li>
-				    				<li><a href="listar.php?categoria=bolos" >BOLOS E TORTAS</a></li>
-				    				<li><a href="listar.php?categoria=carnes">CARNES</a></li>
-				    				<li><a href="listar.php?categoria=doces" >DOCES</a></li>
-				    				<li><a href="listar.php?categoria=frutos">FRUTOS DO MAR</a></li>
-				    				<li><a href="listar.php?categoria=massas">MASSAS</a></li>
+									<li><a href="<?= __SITE_NAME__ ?>categoria/aves"  >AVES</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>categoria/bolos" >BOLOS E TORTAS</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>categoria/carnes">CARNES</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>categoria/doces" >DOCES</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>categoria/frutos">FRUTOS DO MAR</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>categoria/massas">MASSAS</a></li>
 								</ul>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
