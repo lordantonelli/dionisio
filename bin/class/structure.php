@@ -1,6 +1,6 @@
 <?php
 
-define("__SITE_NAME__", "http://localhost/dionisio/");
+define("__SITE_NAME__", "http://localhost/siade/dionisio/");
 
 class Structure{
 
@@ -71,6 +71,50 @@ class Structure{
 			    <meta content="Receitas Divinas" property="og:site_name">
 			    <meta content="http://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" property="og:url">
 
+				}elseif(strcmp($categoria, "bolos") == 0){
+					$nomeCategoria = "Bolos e tortas";
+
+				}elseif(strcmp($categoria, "carnes") == 0){
+					$nomeCategoria = "Carnes";
+
+				}elseif(strcmp($categoria, "doces") == 0){
+					$nomeCategoria = "Doces";
+
+				}elseif(strcmp($categoria, "frutos") == 0){
+					$nomeCategoria = "Frutos do mar";
+
+				}elseif(strcmp($categoria, "massas") == 0){
+					$nomeCategoria = "Massas";
+				} else {
+					$nomeCategoria = "";
+				}
+					if(!empty($receita->meta)){
+						echo "<title>{$receita->meta->og_title}</title>";
+					} else if($nomeCategoria == ''){
+			    		echo '<title>Divinas receitas</title>';
+			    	} else {
+			    		echo "<title>Receita de {$nomeCategoria}</title>";
+			    	}
+			    ?>
+
+
+			    <meta content="Receitas Divinas" name="AUTHOR">
+			    <meta content="Copyright (c) 2016 by Receitas Divinas" name="COPYRIGHT">
+			    <meta content="pt-br" name="LANGUAGE">			    
+			    <?php
+			    if(!empty($receita->meta)){?>
+				    <meta content="<?= $receita->meta->og_title ?>" property="og:title">
+				    <meta content="<?= $receita->meta->og_title ?>" name="KEYWORDS">
+				    <meta content="<?= $receita->meta->og_description ?>" property="og:description">
+				    <meta content="<?= $receita->meta->og_description ?>" name="DESCRIPTION" >
+				    <meta content="<?= $receita->meta->og_image ?>" property="og:image">
+				    <meta content="<?= $receita->meta->og_type ?>" property="og:type">
+			    <?php
+			    } ?>
+			    <meta content="Receitas Divinas" property="og:site_name">
+			    <meta content="http://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" property="og:url">
+
+
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 			    <link href='https://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
 			    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,500,700' rel='stylesheet' type='text/css'>
@@ -89,6 +133,36 @@ class Structure{
 		    		<!-- <div class="borda-grega"></div> -->
 		    		<div id="header-banner" >
 		    			<div class="container">
+		    				<div class="row-fluid accessibility-language-actions-container">
+			                    <div class="span6 accessibility-container">
+			                        <ul id="accessibility">
+			                            <li>
+			                                <a accesskey="1" href="#content" id="link-conteudo">
+			                                    Ir para o conteúdo
+			                                </a>
+			                            </li>
+			                            <li class="separator">|</li>
+			                            <li>
+			                                <a accesskey="2" href="#navigation" id="link-navegacao">
+			                                    Ir para o menu
+			                                </a>
+			                            </li>
+			                            <li class="separator">|</li>
+			                            <li>
+			                                <a accesskey="3" href="#portal-searchbox" id="link-buscar">
+			                                    Ir para a busca
+			                                </a>
+			                            </li>
+			                            <li class="separator">|</li>
+			                            <li>
+			                                <a accesskey="4" href="#footer" id="link-rodape">
+			                                    Ir para o rodapé
+			                                </a>
+			                            </li>
+			                        </ul>
+			                    </div>
+			                    <!-- fim div.span6 -->
+			                </div>
 		    				<div class="row">
 		    					<div  class="col-md-6">
 		    						<h1 class="logo">Divinas Receitas</h1>
@@ -115,7 +189,7 @@ class Structure{
 					    				</div>
 					    			</form>
 					    			-->
-					    			<form class="form-wrapper cf" role="search">
+					    			<form class="form-wrapper cf" role="search" id="portal-searchbox">
 								        <input list="Receitas" type="text" title="Digite o nome da receita" placeholder="Digite o nome da receita..." class="col-md-9">
 								        <datalist id="Receitas">
 												<?php
@@ -146,7 +220,7 @@ class Structure{
 						    </div>
 				    		<div class="collapse navbar-collapse" id="navbar-list">
 				    			<ul class="nav navbar-nav">
-				    				<li class="home"><a href="<?= __SITE_NAME__ ?>">HOME</a></li>
+				    				<li class="home"><a name="navigation" href="<?= __SITE_NAME__ ?>">HOME</a></li>
 				    				<li class="aves"><a href="<?= __SITE_NAME__ ?>categoria/aves">AVES</a></li>
 				    				<li class="bolos"><a href="<?= __SITE_NAME__ ?>categoria/bolos" >BOLOS E TORTAS</a></li>
 				    				<li class="carnes"><a href="<?= __SITE_NAME__ ?>categoria/carnes">CARNES</a></li>
@@ -230,7 +304,7 @@ class Structure{
 
 	public function footer($carousel = false){
 	?>
-				<footer>
+				<footer id="footer">
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -338,7 +412,9 @@ class Structure{
 	}
 
 	public function toAscii($str) {
-		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', trim($str));
+
+		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', trim($clean));
 		$clean = strtolower(trim($clean, '-'));
 		$clean = preg_replace("/[\/_|+ -]+/", '-', $clean);
 
