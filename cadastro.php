@@ -36,33 +36,35 @@ $structure -> header();
 			</div>
 			<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 blue-grey-border-left">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<h2>Cadastrar</h2>
-					</div>
-					<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-						<div class="form-group">
-							<label for="input-nome">Nome completo:</label>
-							<input type="text" class="form-control" id="input-nome" placeholder="Nome completo">
+					<form>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<h2>Cadastrar</h2>
 						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="form-group">
-							<label for="input-nome">Nascimento</label>
-							<input type="text" class="form-control" id="input-nome" placeholder="Senha">
+						<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+							<div class="form-group">
+								<label for="input-nome">Nome completo</label>
+								<input type="text" class="form-control" id="input-nome" placeholder="Nome completo" onkeypress="return soLetras(event)" >
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="form-group">
-							<label for="input-nome">Cidade:</label>
-							<input type="text" class="form-control" id="input-nome" placeholder="Nome completo">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="form-group">
+								<label for="input-data-nascimento">Data de nascimento</label>
+								<input type="text" class="form-control" id="input-data-nascimento">
+							</div>
 						</div>
-					</div>
-					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-						<div class="form-group">
-							<label for="input-nome">Estado:</label>
-							<input type="text" class="form-control" id="input-nome" placeholder="Nome completo">
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="form-group">
+								<label for="input-nome">Cidade:</label>
+								<input type="text" class="form-control" id="input-nome" placeholder="Nome completo">
+							</div>
 						</div>
-					</div>
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+							<div class="form-group">
+								<label for="input-nome">Estado:</label>
+								<input type="text" class="form-control" id="input-nome" placeholder="Nome completo">
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

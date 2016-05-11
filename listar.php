@@ -25,12 +25,15 @@ if(strcmp( $categoria, "aves") == 0){
 
 }elseif(strcmp($categoria, "massas") == 0){
 	$nomeCategoria = "Massas";
-
 }
+
+$receita = new ArrayObject();
+$receita->setFlags(ArrayObject::STD_PROP_LIST|ArrayObject::ARRAY_AS_PROPS);
+$receita->class = $categoria;
 
 $structure = new Structure;
 
-$structure -> header($categoria);
+$structure -> header($receita);
 
 //Mais acessadas
 /*$rand = array_rand($_SESSION['BD'], 4);

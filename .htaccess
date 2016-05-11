@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /siade/dionisio/
+#RewriteBase /siade/dionisio/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
@@ -13,6 +13,7 @@ RewriteRule ^categoria/([a-z]+)/?$ listar.php?categoria=$1
 
 RewriteRule ^receita/([0-9]+)/([a-zA-Z0-9_-])+/?$ detalhes.php?id=$1
 
+RewriteRule ^exportar/([a-z]+)/([0-9]+)/([a-zA-Z0-9_-])+/?$ exportar.php?tipo=$1&id=$2
 
 
 
