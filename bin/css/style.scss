@@ -269,7 +269,7 @@ section{
 		background-color: #FFFFFF;
 		box-shadow: 0px 0px 15px #555;
 
-		h2{
+		h1, h2, h3{
 			font-family: $roboto;
 			font-size: 40px;
 			text-align: center;
@@ -450,6 +450,15 @@ section{
 			}
 		}
 
+		.export{
+			margin-top: 50px;
+    		text-align: right;
+			.btn-export{
+				background-color: $clr-blue-grey-100;
+    			color: black;
+			}
+		}
+
 		.comentario{
 			padding: 10px;
 			height: 120px;
@@ -493,8 +502,13 @@ section{
 }
 
 /* -=-=-=-= Cadastros =-=-=-=- */
-.cadastro-sec1{
+#cadastro-sec1{
+	.container{
 
+		#input-nome{
+			text-transform: uppercase;
+		}
+	}
 }
 
 
@@ -695,6 +709,7 @@ section{
 	.card-descricao{
 		height: 180px;
 
+
 		.titulo{
 			font-size: 2.5rem;
 			font-weight: 500;
@@ -707,17 +722,22 @@ section{
 			width: 100%;
 			height: 95px;
 			display: inline-table;
-			padding: 10px 5px 5px 5px;
+			padding: 10px 10px 5px 10px;
 			font-size: 2.5rem;
 			font-family: $roboto;
 			font-weight: 500;
 
+			p{
+				margin-bottom: 0px;
+			}
+
 			.rendimento{
 				width: 50%;
-				height: 100%;
+				height: 40px;
 				display: inline-block;
 				text-align: center;
-				border-right: 1px dashed $clr-blue-grey-100;
+				/*border-right: 1px dashed $clr-blue-grey-100;*/
+				text-align: left;
 
 
 			}
@@ -725,7 +745,25 @@ section{
 				width: 50%;
 				display: inline-block;
 				text-align: center;
-				
+				text-align: left;
+			}
+			.avaliacao{
+				width: 100%;
+				height: 20px;
+				display: inline-block;
+				text-align: center;
+				margin-bottom: 0px;
+				text-align: left;
+
+
+				p{
+					display: inline-block;
+					width: 49%;
+				}
+
+				i{
+					font-size: 2rem;
+				}
 			}
 		}
 	}
@@ -782,8 +820,11 @@ section{
 			font-size: 1.6rem;
 			font-family: $roboto;
 			font-weight: 500;
-			text-align: left;
+			padding: 5px;
 
+			p{
+				margin-bottom: 0px;
+			}
 			.rendimento{
 				width: 100%;
 				height: 20px;
@@ -791,6 +832,7 @@ section{
 				text-align: center;
 				border-right: 1px dashed $clr-blue-grey-100;
 				margin-bottom: 0px;
+				text-align: left;
 
 				i{
 					font-size: 2.5rem;
@@ -802,9 +844,33 @@ section{
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 0px;
+				text-align: left;
 
 				i{
 					font-size: 2.5rem;
+				}
+			}
+			.avaliacao{
+				width: 100%;
+				height: 20px;
+				display: inline-block;
+				text-align: center;
+				margin-bottom: 0px;
+				text-align: left;
+
+				p{
+					display: inline;
+
+					&:first-child{
+						float: left;
+					}
+					&:last-child{
+						float: right;
+					}
+				}
+
+				i{
+					font-size: 2rem;
 				}
 			}
 		}

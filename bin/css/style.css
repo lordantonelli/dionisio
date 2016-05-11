@@ -180,7 +180,7 @@ section {
   section .container {
     background-color: #FFFFFF;
     box-shadow: 0px 0px 15px #555; }
-    section .container h2 {
+    section .container h1, section .container h2, section .container h3 {
       font-family: "Roboto", sans-serif;
       font-size: 40px;
       text-align: center;
@@ -297,6 +297,12 @@ section {
       background-color: #eceff1; }
     #detalhes-sec1 .container #form-coment > .btn {
       margin: 5px; }
+  #detalhes-sec1 .container .export {
+    margin-top: 50px;
+    text-align: right; }
+    #detalhes-sec1 .container .export .btn-export {
+      background-color: #cfd8dc;
+      color: black; }
   #detalhes-sec1 .container .comentario {
     padding: 10px;
     height: 120px;
@@ -320,6 +326,9 @@ section {
       display: inline-block; }
 
 /* -=-=-=-= Cadastros =-=-=-=- */
+#cadastro-sec1 .container #input-nome {
+  text-transform: uppercase; }
+
 /* -=-=-=-= Cards =-=-=-=- */
 .card-receita {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -454,20 +463,36 @@ section {
       width: 100%;
       height: 95px;
       display: inline-table;
-      padding: 10px 5px 5px 5px;
+      padding: 10px 10px 5px 10px;
       font-size: 2.5rem;
       font-family: "Roboto", sans-serif;
       font-weight: 500; }
+      .card-grande .card-descricao .descricao p {
+        margin-bottom: 0px; }
       .card-grande .card-descricao .descricao .rendimento {
         width: 50%;
-        height: 100%;
+        height: 40px;
         display: inline-block;
         text-align: center;
-        border-right: 1px dashed #cfd8dc; }
+        /*border-right: 1px dashed $clr-blue-grey-100;*/
+        text-align: left; }
       .card-grande .card-descricao .descricao .tempo {
         width: 50%;
         display: inline-block;
-        text-align: center; }
+        text-align: center;
+        text-align: left; }
+      .card-grande .card-descricao .descricao .avaliacao {
+        width: 100%;
+        height: 20px;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 0px;
+        text-align: left; }
+        .card-grande .card-descricao .descricao .avaliacao p {
+          display: inline-block;
+          width: 49%; }
+        .card-grande .card-descricao .descricao .avaliacao i {
+          font-size: 2rem; }
 
 .card-pequeno {
   height: 200px;
@@ -511,14 +536,17 @@ section {
       font-size: 1.6rem;
       font-family: "Roboto", sans-serif;
       font-weight: 500;
-      text-align: left; }
+      padding: 5px; }
+      .card-pequeno .card-descricao .descricao p {
+        margin-bottom: 0px; }
       .card-pequeno .card-descricao .descricao .rendimento {
         width: 100%;
         height: 20px;
         display: inline-block;
         text-align: center;
         border-right: 1px dashed #cfd8dc;
-        margin-bottom: 0px; }
+        margin-bottom: 0px;
+        text-align: left; }
         .card-pequeno .card-descricao .descricao .rendimento i {
           font-size: 2.5rem; }
       .card-pequeno .card-descricao .descricao .tempo {
@@ -526,9 +554,25 @@ section {
         height: 20px;
         display: inline-block;
         text-align: center;
-        margin-bottom: 0px; }
+        margin-bottom: 0px;
+        text-align: left; }
         .card-pequeno .card-descricao .descricao .tempo i {
           font-size: 2.5rem; }
+      .card-pequeno .card-descricao .descricao .avaliacao {
+        width: 100%;
+        height: 20px;
+        display: inline-block;
+        text-align: center;
+        margin-bottom: 0px;
+        text-align: left; }
+        .card-pequeno .card-descricao .descricao .avaliacao p {
+          display: inline; }
+          .card-pequeno .card-descricao .descricao .avaliacao p:first-child {
+            float: left; }
+          .card-pequeno .card-descricao .descricao .avaliacao p:last-child {
+            float: right; }
+        .card-pequeno .card-descricao .descricao .avaliacao i {
+          font-size: 2rem; }
 
 footer {
   box-shadow: 0px 0px 15px #555;
