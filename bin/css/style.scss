@@ -281,6 +281,10 @@ section{
 		.blue-grey-border{
 			border-right: 4px dashed $clr-blue-grey;
 		}
+		
+		.blue-grey-border-left{
+			border-left: 4px dashed $clr-blue-grey;
+		}
 	}
 }
 
@@ -336,11 +340,11 @@ section{
 
 		.dados-receita{
 			width: calc(100% - 310px);
-			height: 270px;
+			min-height: 270px;
 			float: right;
 
 			.descricao{
-				height: 270px;
+				height: 120px;
 
 				.rendimento{
 					width: 50%;
@@ -375,13 +379,67 @@ section{
 						}
 					}
 				}
-			}
+			}/* .descricao */
+
+			.avaliacao{
+				.avaliacao-qtd{
+					width: 49%;
+    				display: inline-block;
+    				height: 100px;
+					text-align: center;
+					font-size: 2.5rem;
+					font-family: $roboto;
+					font-weight: 500;
+
+					p{
+						margin-bottom: 0px;
+
+						&.titulo{
+							font-size: 1.7rem;
+						}
+					}
+				}
+				.avaliacao-atual{
+					width: 49%;
+    				display: inline-block;
+    				height: 100px;
+					text-align: center;
+					font-size: 2.5rem;
+					font-family: $roboto;
+					font-weight: 500;
+
+					p{
+						margin-bottom: 0px;
+
+						&.titulo{
+							font-size: 1.7rem;
+						}
+					}					
+				}
+
+			}/* Avaliação */
 		}
 
 		#form-coment{
 			text-align: right;
 			margin: 15px 0px;
 
+			.avaliacao-nova{
+				text-align: center;
+				width: 100%;
+				min-height: 50px;
+				>p{
+					font-size: 1.4rem;
+					font-weight: 500;
+					width: 49%;
+					display: inline-block;
+					color: $clr-blue-grey-700;
+				}
+				.br-wrapper{
+					width: 50%;
+					display: inline-block;
+				}
+			}
 			>textarea{
 				width: 100%;
 				background-color: $clr-blue-grey-50;
@@ -404,7 +462,7 @@ section{
 
 				.avatar{
 					width: 70px;
-					display: inline-block;
+					float: left;
 
 					img{
 						height: 70px;						
@@ -433,6 +491,12 @@ section{
 		}
 	}
 }
+
+/* -=-=-=-= Cadastros =-=-=-=- */
+.cadastro-sec1{
+
+}
+
 
 /* -=-=-=-= Cards =-=-=-=- */
 .card-receita{
@@ -609,11 +673,21 @@ section{
 		background-position: center;
 		border-bottom: $clr-blue-grey-400 5px solid;
 		height: 200px;
+		position: relative;
+
 
 		>span{
 			word-wrap: break-word;
-			height: 30px;
-			background-color: red;
+			width: 100%;
+			height: 40px;
+			font-size: 1.8rem;
+			font-weight: 500;
+			text-align: center;
+			position:absolute;
+			bottom: 0px;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #FFFFFF;
+			padding: 5px;
 
 		}
 	}
@@ -668,6 +742,22 @@ section{
 		background-size: cover;
 		background-position: center;
 		border-right: 3px solid $clr-blue-grey-400;
+		position: relative;
+
+		>span{
+			word-wrap: break-word;
+			width: 100%;
+			height: 35px;
+			font-size: 1.6rem;
+			font-weight: 500;
+			text-align: center;
+			position:absolute;
+			bottom: 0px;
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #FFFFFF;
+			padding: 5px;
+
+		}
 	}
 
 	.card-descricao{
@@ -692,22 +782,26 @@ section{
 			font-size: 1.6rem;
 			font-family: $roboto;
 			font-weight: 500;
+			text-align: left;
 
 			.rendimento{
-				width: 50%;
-				height: 100%;
+				width: 100%;
+				height: 20px;
 				display: inline-block;
 				text-align: center;
 				border-right: 1px dashed $clr-blue-grey-100;
+				margin-bottom: 0px;
 
 				i{
 					font-size: 2.5rem;
 				}
 			}
 			.tempo{
-				width: 50%;
+				width: 100%;
+				height: 20px;
 				display: inline-block;
 				text-align: center;
+				margin-bottom: 0px;
 
 				i{
 					font-size: 2.5rem;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-size: 14px;
   font-family: "Roboto", sans-serif; }
@@ -188,6 +189,8 @@ section {
       color: #37474f; }
     section .container .blue-grey-border {
       border-right: 4px dashed #607d8b; }
+    section .container .blue-grey-border-left {
+      border-left: 4px dashed #607d8b; }
 
 /* -=-=-=-= Detalhes =-=-=-=- */
 #detalhes-sec1 .container {
@@ -219,10 +222,12 @@ section {
           background-color: #37474f; }
   #detalhes-sec1 .container .dados-receita {
     width: calc(100% - 310px);
-    height: 270px;
-    float: right; }
+    min-height: 270px;
+    float: right;
+    /* .descricao */
+    /* Avaliação */ }
     #detalhes-sec1 .container .dados-receita .descricao {
-      height: 270px; }
+      height: 120px; }
       #detalhes-sec1 .container .dados-receita .descricao .rendimento {
         width: 50%;
         display: inline-block;
@@ -247,9 +252,46 @@ section {
           margin-bottom: 0px; }
           #detalhes-sec1 .container .dados-receita .descricao .tempo p.titulo {
             font-size: 1.7rem; }
+    #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd {
+      width: 49%;
+      display: inline-block;
+      height: 100px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500; }
+      #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd p {
+        margin-bottom: 0px; }
+        #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd p.titulo {
+          font-size: 1.7rem; }
+    #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual {
+      width: 49%;
+      display: inline-block;
+      height: 100px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500; }
+      #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual p {
+        margin-bottom: 0px; }
+        #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual p.titulo {
+          font-size: 1.7rem; }
   #detalhes-sec1 .container #form-coment {
     text-align: right;
     margin: 15px 0px; }
+    #detalhes-sec1 .container #form-coment .avaliacao-nova {
+      text-align: center;
+      width: 100%;
+      min-height: 50px; }
+      #detalhes-sec1 .container #form-coment .avaliacao-nova > p {
+        font-size: 1.4rem;
+        font-weight: 500;
+        width: 49%;
+        display: inline-block;
+        color: #455a64; }
+      #detalhes-sec1 .container #form-coment .avaliacao-nova .br-wrapper {
+        width: 50%;
+        display: inline-block; }
     #detalhes-sec1 .container #form-coment > textarea {
       width: 100%;
       background-color: #eceff1; }
@@ -266,7 +308,7 @@ section {
       float: left; }
       #detalhes-sec1 .container .comentario .user .avatar {
         width: 70px;
-        display: inline-block; }
+        float: left; }
         #detalhes-sec1 .container .comentario .user .avatar img {
           height: 70px; }
       #detalhes-sec1 .container .comentario .user .dados {
@@ -277,6 +319,7 @@ section {
       float: right;
       display: inline-block; }
 
+/* -=-=-=-= Cadastros =-=-=-=- */
 /* -=-=-=-= Cards =-=-=-=- */
 .card-receita {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -384,11 +427,20 @@ section {
     background-size: cover;
     background-position: center;
     border-bottom: #78909c 5px solid;
-    height: 200px; }
+    height: 200px;
+    position: relative; }
     .card-grande .card-img > span {
       word-wrap: break-word;
-      height: 30px;
-      background-color: red; }
+      width: 100%;
+      height: 40px;
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-align: center;
+      position: absolute;
+      bottom: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #FFFFFF;
+      padding: 5px; }
   .card-grande .card-descricao {
     height: 180px; }
     .card-grande .card-descricao .titulo {
@@ -426,7 +478,20 @@ section {
     float: left;
     background-size: cover;
     background-position: center;
-    border-right: 3px solid #78909c; }
+    border-right: 3px solid #78909c;
+    position: relative; }
+    .card-pequeno .card-img > span {
+      word-wrap: break-word;
+      width: 100%;
+      height: 35px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      text-align: center;
+      position: absolute;
+      bottom: 0px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #FFFFFF;
+      padding: 5px; }
   .card-pequeno .card-descricao {
     height: 170px;
     width: 50%;
@@ -445,19 +510,23 @@ section {
       height: 85px;
       font-size: 1.6rem;
       font-family: "Roboto", sans-serif;
-      font-weight: 500; }
+      font-weight: 500;
+      text-align: left; }
       .card-pequeno .card-descricao .descricao .rendimento {
-        width: 50%;
-        height: 100%;
+        width: 100%;
+        height: 20px;
         display: inline-block;
         text-align: center;
-        border-right: 1px dashed #cfd8dc; }
+        border-right: 1px dashed #cfd8dc;
+        margin-bottom: 0px; }
         .card-pequeno .card-descricao .descricao .rendimento i {
           font-size: 2.5rem; }
       .card-pequeno .card-descricao .descricao .tempo {
-        width: 50%;
+        width: 100%;
+        height: 20px;
         display: inline-block;
-        text-align: center; }
+        text-align: center;
+        margin-bottom: 0px; }
         .card-pequeno .card-descricao .descricao .tempo i {
           font-size: 2.5rem; }
 

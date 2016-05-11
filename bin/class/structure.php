@@ -62,7 +62,9 @@ class Structure{
 			    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,500,700' rel='stylesheet' type='text/css'>
 			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/css/style.css">
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/fontawesome-stars.css">
 			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/plugin/owl_carousel/assets/owl.carousel.css">
+			    
 			    
 			    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,400italic,300italic' rel='stylesheet' type='text/css'> -->
 
@@ -180,7 +182,8 @@ class Structure{
 		}
 
 		$foto = $dados->images[0]->link;
-		
+		$users = ['raquel da paz oliveira', 'Emanuelle Danttas', 'MariaCecilia', 'Lisandra', 'Joabe Oliveira', 'Icaro Santana', 'Silmara Dias da Silva', 'Maristella', 'Nana Spagnol', 'Priscila', 'Vanessa'];
+
 	?>
 		<div class="card-receita <?=($tamanho == 1 ? "card-pequeno" : "card-grande") ?> card-<?= $categoria ?>">
 			<a href="<?= __SITE_NAME__ ?>receita/<?= $dados->id ?>/<?= $this->toAscii($dados->name)?>">
@@ -188,18 +191,16 @@ class Structure{
 					<p><?= $nomeCategoria ?></p>
 				</div>
 				<div class="card-img" style="background-image: url('<?= $foto ?>)">
-					<span>Guilherme potenciano</span>
+					<span><?= ucwords($this->limitarTexto($users[array_rand($users)], 25)) ?></span>
 				</div>
 				<div class="card-descricao">
 					<div class="titulo"><?= $dados->name ?></div>
 					<div class="descricao">
 						<div class="rendimento">
-							<span class="fa fa-cutlery" aria-hidden="true"></span>
-							<p><?= $dados->recipeYield->human ?></p>
+							<p><span class="fa fa-cutlery" aria-hidden="true"></span><?= $dados->recipeYield->human ?></p>
 						</div>
 						<div class="tempo">
-							<span class="fa fa-clock-o" aria-hidden="true"></span>
-							<p><?= $dados->totalTime->human  ?></p>
+							<p><span class="fa fa-clock-o" aria-hidden="true"></span><?= $dados->totalTime->human  ?></p>
 						</div>
 					</div>
 				</div>
@@ -246,7 +247,8 @@ class Structure{
 
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-				
+				<script src="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/jquery.barrating.min.js"></script>
+
 				<?php
 				if($carousel){ ?>
 					<script src="bin/plugin/owl_carousel/owl.carousel.js"></script>
@@ -258,7 +260,7 @@ class Structure{
 							    dots: true,
 							    nav:false,
 							    items: 1
-							});	
+							});
 						});
 					</script>
 
@@ -266,6 +268,12 @@ class Structure{
 				} ?>
 
 				<script>
+					jQuery(document).ready(function(){
+						jQuery('#rating-stars').barrating({
+							theme: 'fontawesome-stars'
+						});
+					});
+
 					function navColor(classe){
 
 						hoverOn = function(){
@@ -300,5 +308,15 @@ class Structure{
 
 		return $clean;
 	}
+	function limitarTexto($texto, $limite){
+		$contador = strlen($texto);
+		if ( $contador >= $limite ) {      
+			$texto = substr($texto, 0, strrpos(substr($texto, 0, $limite), ' ')) . '...';
+			return $texto;
+		}
+		else{
+			return $texto;
+		}
+	} 
 }
 ?>

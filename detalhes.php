@@ -9,8 +9,9 @@ if(!empty($_REQUEST['id'])){
 }/*else{
 	header("Location: index.php"); 
 }*/
-
-$id = '146540';
+else{
+	$id = '146540';
+}
 
 $structure = new Structure;
 
@@ -60,6 +61,18 @@ $structure -> header($receita->class);
 									<p><?= $receita->totalTime->human  ?></p>
 								</div>
 							</div>
+							<div class="avaliacao">
+								<div class="avaliacao-qtd">
+									<i class="fa fa-users" aria-hidden="true"></i>
+									<p class="titulo">Qtd. Avaliações</p>
+									<p><?= $receita->aggregateRating->ratingCount  ?></p>
+								</div>
+								<div class="avaliacao-atual">
+									<i class="fa fa-star" aria-hidden="true"></i>
+									<p class="titulo">Avaliação</p>
+									<p><?= $receita->aggregateRating->ratingValue  ?></p>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -95,6 +108,16 @@ $structure -> header($receita->class);
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<form id="form-coment">
+							<div class="avaliacao-nova">
+								<p>SELECIONE UMA NOTA:<br>Passe o mouse em cima e selecione a sua nota.</p>
+								<select id="rating-stars">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</div>
 							<textarea class="form-control" rows="6" placeholder="Deixe seu comentário..."></textarea>
 							<button type="submit" class="btn btn-default">Enviar</button>
 						</form>
@@ -110,6 +133,13 @@ $structure -> header($receita->class);
 									<div class="dados">
 										<p class="nome"><?= $value->userName ?></p>
 										<p class="hora"><?= $value->dateTime ?></p>
+										<div><?php
+										for($i=0; $i < rand(1,6); $i++){
+										?>
+											<i class="fa fa-star" aria-hidden="true"></i>
+										<?php
+										}?>
+										</div>
 									</div>
 								</div>
 								<div class="text">
