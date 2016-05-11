@@ -40,8 +40,12 @@ class Structure{
 		}
 	}
 
-	public function header($categoria = ''){
-
+	public function header($receita = ""){
+		if(!empty($receita)){
+			$categoria = $receita->class;
+		}else{
+			$categoria = "";
+		}	
 	?>
 		<!doctype html>
 
@@ -50,21 +54,31 @@ class Structure{
 			    <meta charset="utf-8">
 
 			    <title>Divinas receitas</title>
-			    <meta name="description" content="">
-			    <meta name="author" content="">
 
-			    <meta content="Tudo Gostoso" property="og:site_name">
-			    <meta content="http://www.tudogostoso.com.br/receita/23-bolo-de-cenoura.html" property="og:url">
-			    	
+			    <meta content="Receitas Divinas" name="AUTHOR">
+			    <meta content="Copyright (c) 2016 by Receitas Divinas" name="COPYRIGHT">
+			    <meta content="pt-br" name="LANGUAGE">			    
+			    <?php
+			    if(!empty($receita->meta)){?>
+				    <meta content="<?= $receita->meta->og_title ?>" property="og:title">
+				    <meta content="<?= $receita->meta->og_title ?>" name="KEYWORDS">
+				    <meta content="<?= $receita->meta->og_description ?>" property="og:description">
+				    <meta content="<?= $receita->meta->og_description ?>" name="DESCRIPTION" >
+				    <meta content="<?= $receita->meta->og_image ?>" property="og:image">
+				    <meta content="<?= $receita->meta->og_type ?>" property="og:type">
+			    <?php
+			    } ?>
+			    <meta content="Receitas Divinas" property="og:site_name">
+			    <meta content="http://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" property="og:url">
 
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 			    <link href='https://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
 			    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,300,500,700' rel='stylesheet' type='text/css'>
 			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/css/style.css">
+			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/css/bootstrap-datepicker.css">
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/fontawesome-stars.css">
 			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/plugin/owl_carousel/assets/owl.carousel.css">
-			    
+			    <link rel="stylesheet" href="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/fontawesome-stars.css">
 			    
 			    <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,400italic,300italic' rel='stylesheet' type='text/css'> -->
 
@@ -149,7 +163,7 @@ class Structure{
 
 	public function buscaReceita($id){
 		foreach ($_SESSION['BD'] as $key => $value) {
-			if(strcmp($id, $value->id)){
+			if(strcmp($id, $value->id) == 0){
 				return $value;
 				break;
 			}
@@ -185,7 +199,7 @@ class Structure{
 		$users = ['raquel da paz oliveira', 'Emanuelle Danttas', 'MariaCecilia', 'Lisandra', 'Joabe Oliveira', 'Icaro Santana', 'Silmara Dias da Silva', 'Maristella', 'Nana Spagnol', 'Priscila', 'Vanessa'];
 
 	?>
-		<div class="card-receita <?=($tamanho == 1 ? "card-pequeno" : "card-grande") ?> card-<?= $categoria ?>">
+		<div class="card-receita <?=($tamanho == 1 ? "card-pequeno" : "card-grande") ?> card-<?= $categoria ?>" itemscope="itemscope" itemtype="http://schema.org/Recipe">
 			<a href="<?= __SITE_NAME__ ?>receita/<?= $dados->id ?>/<?= $this->toAscii($dados->name)?>">
 				<div class="card-tab">
 					<p><?= $nomeCategoria ?></p>
@@ -197,10 +211,14 @@ class Structure{
 					<div class="titulo"><?= $dados->name ?></div>
 					<div class="descricao">
 						<div class="rendimento">
-							<p><span class="fa fa-cutlery" aria-hidden="true"></span><?= $dados->recipeYield->human ?></p>
+							<p itemprop="recipeYield" value="<?= $dados->recipeYield->value ?>"><span class="fa fa-cutlery" aria-hidden="true"></span><?= $dados->recipeYield->human ?></p>
 						</div>
 						<div class="tempo">
-							<p><span class="fa fa-clock-o" aria-hidden="true"></span><?= $dados->totalTime->human  ?></p>
+							<p datetime="<?= $dados->totalTime->dateTime ?>" itemprop="totalTime"><span class="fa fa-clock-o" aria-hidden="true"></span><?= $dados->totalTime->human  ?></p>
+						</div>
+						<div class="avaliacao">
+							<p itemprop="ratingCount"><i class="fa fa-users" aria-hidden="true"></i><?= $dados->aggregateRating->ratingCount ?></p>
+							<p itemprop="ratingValue"><i class="fa fa-star" aria-hidden="true"></i></span><?= $dados->aggregateRating->ratingValue  ?></p>
 						</div>
 					</div>
 				</div>
@@ -248,10 +266,11 @@ class Structure{
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 				<script src="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/jquery.barrating.min.js"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/bootstrap-datepicker.js"></script>
 
 				<?php
 				if($carousel){ ?>
-					<script src="bin/plugin/owl_carousel/owl.carousel.js"></script>
+					<script src="<?= __SITE_NAME__ ?>bin/plugin/owl_carousel/owl.carousel.js"></script>
 					<script>
 						jQuery(document).ready(function(){
 							jQuery('.owl-carousel').owlCarousel({
@@ -260,7 +279,7 @@ class Structure{
 							    dots: true,
 							    nav:false,
 							    items: 1
-							});
+							});	
 						});
 					</script>
 
@@ -268,14 +287,26 @@ class Structure{
 				} ?>
 
 				<script>
-					jQuery(document).ready(function(){
-						jQuery('#rating-stars').barrating({
-							theme: 'fontawesome-stars'
+					jQuery(document).ready(function(){ 
+						jQuery('#rating-stars').barrating({ 
+							theme: 'fontawesome-stars' 
+						}); 
+						jQuery('#input-data-nascimento').datepicker({
+							format: "dd/mm/yyyy",
+						    startDate: "-13y",
+						    language: "pt-BR"
 						});
-					});
-
+						jQuery("#input-nome").mask("aZ");
+						navColor('aves');
+						navColor('bolos');
+						navColor('carnes');
+						navColor('doces');
+						navColor('frutos');
+						navColor('massas');
+					}); 
 					function navColor(classe){
-
+						
+ 
 						hoverOn = function(){
 							jQuery("#nav-container").addClass(classe);
 						}
@@ -287,12 +318,17 @@ class Structure{
 						jQuery("#nav-container ul li."+classe).hover(hoverOn, hoverOff);
 					}
 
-					navColor('aves');
-					navColor('bolos');
-					navColor('carnes');
-					navColor('doces');
-					navColor('frutos');
-					navColor('massas');
+					//só aceita letras
+					function soLetras(obj){
+					     var tecla = (window.event) ? event.keyCode : obj.which;
+					     if((tecla > 65 && tecla < 90)
+					         ||(tecla > 97 && tecla < 122))
+					               return true;
+					     else{
+					          if (tecla != 8) return false;
+					          else return true;
+					     }
+					}
 				</script>
 
 			</body>
@@ -317,6 +353,6 @@ class Structure{
 		else{
 			return $texto;
 		}
-	} 
+	}
 }
 ?>
