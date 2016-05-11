@@ -1,6 +1,6 @@
 <?php
 
-define("__SITE_NAME__", "http://localhost/siade/dionisio/");
+define("__SITE_NAME__", "http://localhost/dionisio/");
 
 class Structure{
 
@@ -70,50 +70,6 @@ class Structure{
 			    } ?>
 			    <meta content="Receitas Divinas" property="og:site_name">
 			    <meta content="http://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" property="og:url">
-
-				}elseif(strcmp($categoria, "bolos") == 0){
-					$nomeCategoria = "Bolos e tortas";
-
-				}elseif(strcmp($categoria, "carnes") == 0){
-					$nomeCategoria = "Carnes";
-
-				}elseif(strcmp($categoria, "doces") == 0){
-					$nomeCategoria = "Doces";
-
-				}elseif(strcmp($categoria, "frutos") == 0){
-					$nomeCategoria = "Frutos do mar";
-
-				}elseif(strcmp($categoria, "massas") == 0){
-					$nomeCategoria = "Massas";
-				} else {
-					$nomeCategoria = "";
-				}
-					if(!empty($receita->meta)){
-						echo "<title>{$receita->meta->og_title}</title>";
-					} else if($nomeCategoria == ''){
-			    		echo '<title>Divinas receitas</title>';
-			    	} else {
-			    		echo "<title>Receita de {$nomeCategoria}</title>";
-			    	}
-			    ?>
-
-
-			    <meta content="Receitas Divinas" name="AUTHOR">
-			    <meta content="Copyright (c) 2016 by Receitas Divinas" name="COPYRIGHT">
-			    <meta content="pt-br" name="LANGUAGE">			    
-			    <?php
-			    if(!empty($receita->meta)){?>
-				    <meta content="<?= $receita->meta->og_title ?>" property="og:title">
-				    <meta content="<?= $receita->meta->og_title ?>" name="KEYWORDS">
-				    <meta content="<?= $receita->meta->og_description ?>" property="og:description">
-				    <meta content="<?= $receita->meta->og_description ?>" name="DESCRIPTION" >
-				    <meta content="<?= $receita->meta->og_image ?>" property="og:image">
-				    <meta content="<?= $receita->meta->og_type ?>" property="og:type">
-			    <?php
-			    } ?>
-			    <meta content="Receitas Divinas" property="og:site_name">
-			    <meta content="http://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" property="og:url">
-
 
 			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 			    <link href='https://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
@@ -220,7 +176,7 @@ class Structure{
 						    </div>
 				    		<div class="collapse navbar-collapse" id="navbar-list">
 				    			<ul class="nav navbar-nav">
-				    				<li class="home"><a name="navigation" href="<?= __SITE_NAME__ ?>">HOME</a></li>
+				    				<li class="home"><a href="<?= __SITE_NAME__ ?>">HOME</a></li>
 				    				<li class="aves"><a href="<?= __SITE_NAME__ ?>categoria/aves">AVES</a></li>
 				    				<li class="bolos"><a href="<?= __SITE_NAME__ ?>categoria/bolos" >BOLOS E TORTAS</a></li>
 				    				<li class="carnes"><a href="<?= __SITE_NAME__ ?>categoria/carnes">CARNES</a></li>
@@ -304,7 +260,7 @@ class Structure{
 
 	public function footer($carousel = false){
 	?>
-				<footer id="footer">
+				<footer>
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -341,6 +297,7 @@ class Structure{
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 				<script src="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/jquery.barrating.min.js"></script>
 				<script src="<?= __SITE_NAME__ ?>bin/js/bootstrap-datepicker.js"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/jquery.mask.js"></script>
 
 				<?php
 				if($carousel){ ?>
@@ -367,10 +324,10 @@ class Structure{
 						}); 
 						jQuery('#input-data-nascimento').datepicker({
 							format: "dd/mm/yyyy",
-						    startDate: "-13y",
+						    maxtDate: "01/01/2003",
 						    language: "pt-BR"
 						});
-						jQuery("#input-nome").mask("aZ");
+						jQuery('#form-cadastro #input-telefone').mask('(00) 0000-0000');
 						navColor('aves');
 						navColor('bolos');
 						navColor('carnes');
@@ -412,9 +369,7 @@ class Structure{
 	}
 
 	public function toAscii($str) {
-
-		$clean = iconv('UTF-8', 'ASCII//TRANSLIT', $str);
-		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', trim($clean));
+		$clean = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', trim($str));
 		$clean = strtolower(trim($clean, '-'));
 		$clean = preg_replace("/[\/_|+ -]+/", '-', $clean);
 
