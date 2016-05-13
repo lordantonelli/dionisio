@@ -33,7 +33,7 @@ $card10 = $_SESSION['BD'][$rand[3]];
 //print_r($card1);
 ?>
 
-<section id="index-sec1">
+<section id="section" class="index-sec1">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 blue-grey-border">

@@ -35,30 +35,33 @@ $structure = new Structure;
 
 $structure -> header($receita);
 
-//Mais acessadas
-/*$rand = array_rand($_SESSION['BD'], 4);
-$card7 = $_SESSION['BD'][$rand[0]];
-$card8 = $_SESSION['BD'][$rand[1]];
-$card9 = $_SESSION['BD'][$rand[2]];
-$card10 = $_SESSION['BD'][$rand[3]];*/
-
-//print_r($card1);
 ?>
 
-<section>
+<section id="section" >
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h2><?= $nomeCategoria ?></h2>
 			</div>
-			<?php
-				foreach ($_SESSION['receitas'][$categoria] as $key => $receita) {
-					echo '<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">';
-					$structure->generateCard(1, $receita);
-					echo '</div>';
-				}
-			?>
 		</div>
+			<?php
+			$i = 0;
+			foreach ($_SESSION['receitas'][$categoria] as $key => $receita) {
+				if($i == 0){ echo '<div class="row">';}
+
+				echo '<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">';
+				$structure->generateCard(1, $receita);
+				echo '</div>';
+
+				if($i >= 2 || $key == count($_SESSION['receitas'][$categoria])-1 ){
+					echo '</div>';
+					$i = 0;
+				}else{
+					$i++;
+				}
+			}
+			?>
+		
 	</div>
 </section>
 

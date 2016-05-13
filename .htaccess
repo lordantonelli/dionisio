@@ -13,4 +13,9 @@ RewriteRule ^categoria/([a-z]+)/?$ listar.php?categoria=$1
 
 RewriteRule ^receita/([0-9]+)/([a-zA-Z0-9_-])+/?$ detalhes.php?id=$1
 
+RewriteRule ^cadastro/?$ cadastro.php
+RewriteRule ^entrar/?$ cadastro.php
+
+RewriteRule ^cadastro_receita/?$ cadastro_receita.php
+
 RewriteRule ^exportar/([a-z]+)/([0-9]+)/([a-zA-Z0-9_-])+/?$ exportar.php?tipo=$1&id=$2

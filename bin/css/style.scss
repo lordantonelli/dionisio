@@ -6,9 +6,9 @@ $alef: 'Alef', sans-serif;
 $roboto : 'Roboto', sans-serif;
 
 
-body{
- 	font-size: 14px;
- 	font-family: $roboto;
+html, body{
+ 	font-size: 12px !important;
+ 	font-family: $roboto !important;
  }
 /* -=-=-=-= Barra de busca =-=-=-=- */
 .cf{
@@ -121,6 +121,7 @@ body{
 /* -=-=-=-= Nav Bar =-=-=-=-=- */
 header {
 	background-color: $clr-blue-grey-800;
+	height: 200px;
 
 	#header-banner{
 		height: auto;
@@ -128,41 +129,52 @@ header {
 
 		.logo{
 			color: #FFFFFF;
-			font-size: 50px;
-			font-family: $roboto;
+			font-size: 4.5rem;
+		    margin-top: 11px;
 		}
 	}
 
 	.accessibility-language-actions-container {
-    height: 25px;
-    overflow: hidden;
-    margin-top: 10px;
-  }
-  #accessibility {
-    font-family: Arial, Helvetica, sans-serif !important;
-    margin: 0;
-    line-height: 5px;
-    padding-top: 2px;
-    list-style: none;
-    padding-left: 0;
-    li {
-      line-height: 5px;
-      margin: 0 10px 0 0;
-      display: inline;
-      &.separator {
-        color: #dcecff;
-      }
-    }
-    a {
-      color: #dcecff;
-      font-size: 0.7em;
-      span {
-        background-color: #fff;
-        color: #3e67b1;
-        padding: 0 2px 0 3px;
-      }
-    }
-  }
+		height: 25px;
+		overflow: hidden;
+		margin-top: 10px;
+		display: inline-block;
+	}
+	#accessibility {
+		font-family: Arial, Helvetica, sans-serif !important;
+		margin: 0;
+		line-height: 5px;
+		padding-top: 2px;
+		list-style: none;
+		padding-left: 0;
+		li {
+			line-height: 5px;
+			margin: 0 10px 0 0;
+			display: inline;
+			&.separator {
+				color: #dcecff;
+			}
+		}
+		a {
+			color: #dcecff;
+			font-size: 0.9rem;
+			span {
+				background-color: #fff;
+				color: #3e67b1;
+				padding: 0 2px 0 3px;
+			}
+		}
+	}
+
+	#baixa-visao{
+		float: right;
+    	padding: 10px 10px 0px 0px;
+
+    	button{
+    		font-size: 1.5rem;
+    		font-weight: 700;
+    	}
+	}
 
 	nav{
 
@@ -187,7 +199,7 @@ header {
 		}
 
 		#nav-container{
-			padding-top: 10px;
+			padding-top: 30px;
 			background-color: $clr-blue-grey-800;
 			border-bottom: 10px solid $clr-blue-grey-400;
 			transition: border-color 0.3s;
@@ -215,6 +227,8 @@ header {
 
 
 			ul{
+				max-height: 50px;
+
 				li{
 					border-radius: 10px 10px 0px 0px;
 					margin-right: 2px;
@@ -225,8 +239,9 @@ header {
 					a{
 						position: relative;
 						color: #FFFFFF;
-						font-size: 2rem;
-						font-weight: 700;
+						font-size: 1.8rem;
+					    font-weight: 700;
+					    text-align: center;
 
 						&:hover, &:focus{
 							color: #FFFFFF !important;
@@ -244,6 +259,7 @@ header {
 					}
 					&.bolos{
 						background-color: $clr-brown;
+    					top: -20px;
 
 						&:hover{
 							
@@ -258,6 +274,7 @@ header {
 					}
 					&.frutos{
 						background-color: $clr-blue;
+						top: -20px;
 
 						&:hover{
 							
@@ -276,6 +293,9 @@ header {
 						&:hover{
 							
 						}
+					}
+					&.receita{
+						top: -20px;
 					}
 				}/* li*/
 			}/* ul */
@@ -303,7 +323,7 @@ section{
 
 		h1, h2, h3{
 			font-family: $roboto;
-			font-size: 40px;
+			font-size: 3.5rem;
 			text-align: center;
 			padding: 20px 5px 5px 5px;
 			border-bottom: 4px dashed $clr-blue-grey-100;
@@ -317,12 +337,17 @@ section{
 		.blue-grey-border-left{
 			border-left: 4px dashed $clr-blue-grey;
 		}
+
+		.blue-grey-border-left-right{
+			border-left: 4px dashed $clr-blue-grey;
+			border-right: 4px dashed $clr-blue-grey;
+		}
 	}
 }
 
 
 /* -=-=-=-= Detalhes =-=-=-=- */
-#detalhes-sec1{
+.detalhes-sec1{
 
 	.container{
 
@@ -376,14 +401,14 @@ section{
 			float: right;
 
 			.descricao{
-				height: 120px;
+				min-height: 120px;
 
 				.rendimento{
 					width: 50%;
 					display: inline-block;
-					height: 100px;
+					min-height: 100px;
 					text-align: center;
-					font-size: 2.5rem;
+					font-size: 2rem;
 					font-family: $roboto;
 					font-weight: 500;
 
@@ -397,9 +422,9 @@ section{
 				.tempo{
 					width: 49%;
     				display: inline-block;
-    				height: 100px;
+    				min-height: 100px;
 					text-align: center;
-					font-size: 2.5rem;
+					font-size: 2rem;
 					font-family: $roboto;
 					font-weight: 500;
 
@@ -417,9 +442,9 @@ section{
 				.avaliacao-qtd{
 					width: 49%;
     				display: inline-block;
-    				height: 100px;
+    				min-height: 100px;
 					text-align: center;
-					font-size: 2.5rem;
+					font-size: 2rem;
 					font-family: $roboto;
 					font-weight: 500;
 
@@ -434,9 +459,9 @@ section{
 				.avaliacao-atual{
 					width: 49%;
     				display: inline-block;
-    				height: 100px;
+    				min-height: 100px;
 					text-align: center;
-					font-size: 2.5rem;
+					font-size: 2rem;
 					font-family: $roboto;
 					font-weight: 500;
 
@@ -450,6 +475,10 @@ section{
 				}
 
 			}/* Avaliação */
+		}
+
+		ul, ol{
+			font-size: 1.5rem;
 		}
 
 		#form-coment{
@@ -534,12 +563,47 @@ section{
 }
 
 /* -=-=-=-= Cadastros =-=-=-=- */
-#cadastro-sec1{
+.cadastro-sec1{
 	.container{
 
-	#form-cadastro{
-		#input-nome{
+		#form-login{
+			font-size: 1.3rem;
+
+			.btn{
+				font-weight: 600;
+			}
+		}
+		#form-cadastro{
+			font-size: 1.3rem;
+
+			#input-nome{
 				text-transform: uppercase;
+			}
+			#input-cidade{
+				text-transform: uppercase;
+			}
+			
+			.btn{
+				font-weight: 600;
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
+
+.cadastro-receita-sec1{
+	.container{
+		#form-cadastro-receita{
+			font-size: 1.3rem;
+
+			.input-ingredientes{
+				margin-bottom: 10px;
+			}
+			.input-preparo{
+				margin-bottom: 10px;
+			}
+			.btn{
+				margin-bottom: 20px;
 			}
 		}
 	}
@@ -568,7 +632,7 @@ section{
  	}
 
 	.card-tab{
-		height: 30px;
+		min-height: 30px;
 		background-color: $clr-blue-grey-400;
 		background-image: url('../../images/pattern.png');
 		background-size: cover;
@@ -579,6 +643,7 @@ section{
     		font-size: 1.8rem;
     		font-weight: 600;
     		color: #FFFFFF;
+			margin-bottom: 0px;
     	}
 	}
 
@@ -714,7 +779,7 @@ section{
 
 .card-grande{
 	width: 100%;
-	height: 410px;
+	min-height: 410px;
 
 	.card-img{
 		background-size: cover;
@@ -741,23 +806,23 @@ section{
 	}
 
 	.card-descricao{
-		height: 180px;
+		min-height: 180px;
 
 
 		.titulo{
-			font-size: 2.5rem;
+			font-size: 2rem;
 			font-weight: 500;
 			text-align: center;
 			padding: 10px;
-			height: 85px;
+			min-height: 85px;
 			border-bottom: 1px dashed $clr-blue-grey-100;
 		}
 		.descricao{
 			width: 100%;
-			height: 95px;
+			min-height: 95px;
 			display: inline-table;
 			padding: 10px 10px 5px 10px;
-			font-size: 2.5rem;
+			font-size: 2rem;
 			font-family: $roboto;
 			font-weight: 500;
 
@@ -767,7 +832,7 @@ section{
 
 			.rendimento{
 				width: 50%;
-				height: 40px;
+				min-height: 40px;
 				display: inline-block;
 				text-align: center;
 				/*border-right: 1px dashed $clr-blue-grey-100;*/
@@ -783,7 +848,7 @@ section{
 			}
 			.avaliacao{
 				width: 100%;
-				height: 20px;
+				min-height: 20px;
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 0px;
@@ -804,7 +869,7 @@ section{
 }
 
 .card-pequeno{
-	height: 200px;
+	min-height: 200px;
 	margin-bottom: 10px;
 
 	.card-img{
@@ -828,21 +893,22 @@ section{
 			background-color: rgba(0, 0, 0, 0.5);
 			color: #FFFFFF;
 			padding: 5px;
+			overflow: hidden;
 
 		}
 	}
 
 	.card-descricao{
-		height: 170px;
+		min-height: 170px;
 		width: 50%;
 		float: right;
 
 		.titulo{
-			font-size: 1.8rem;
+			font-size: 1.6rem;
 			font-weight: 500;
 			text-align: center;
 			padding: 5px;
-			height: 85px;
+			min-height: 85px;
 			border-bottom: 1px dashed $clr-blue-grey-100;
 		}
 
@@ -850,8 +916,8 @@ section{
 			width: 100%;
 			padding: 10px 5px 5px 5px;
 			display: inline-table;
-			height: 85px;
-			font-size: 1.6rem;
+			min-height: 85px;
+			font-size: 1.4rem;
 			font-family: $roboto;
 			font-weight: 500;
 			padding: 5px;
@@ -861,10 +927,9 @@ section{
 			}
 			.rendimento{
 				width: 100%;
-				height: 20px;
+				min-height: 20px;
 				display: inline-block;
 				text-align: center;
-				border-right: 1px dashed $clr-blue-grey-100;
 				margin-bottom: 0px;
 				text-align: left;
 
@@ -874,7 +939,7 @@ section{
 			}
 			.tempo{
 				width: 100%;
-				height: 20px;
+				min-height: 20px;
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 0px;
@@ -886,7 +951,7 @@ section{
 			}
 			.avaliacao{
 				width: 100%;
-				height: 20px;
+				min-height: 20px;
 				display: inline-block;
 				text-align: center;
 				margin-bottom: 0px;
