@@ -7,7 +7,6 @@ $tipo = $_REQUEST['tipo'];
 $id = $_REQUEST['id'];
 
 $structure = new Structure;
-$export_XML = new Export_XML;
 
 
 if(empty($tipo) || empty($id)){
@@ -15,51 +14,47 @@ if(empty($tipo) || empty($id)){
 }elseif(strcmp($tipo,"xml") == 0){
 	$receita = $structure->buscaReceita($id);
 
-	$xml = new ArrayObject();
-	$xml->setFlags(ArrayObject::STD_PROP_LIST|ArrayObject::ARRAY_AS_PROPS);
+	$xml = '<?xml version="1.0" encoding="UTF-8"?>';
+	$xml .= '<receita>';
+	$xml .=  '*%'.'<class>'.$receita->class.'</class>';
+	$xml .=  '*%'.'<id>'.$receita->id.'</id>';
+	$xml .=  '*%'.'<name>'.$receita->name.'</name>';
+	$xml .=  '*%'.'<totalTime>';
+		$xml .=  '*%'.'<dateTime>'.$receita->totalTime->dateTime.'</dateTime>';
+		$xml .=  '*%'.'<human>'.$receita->totalTime->human.'</human>';
+	$xml .=  '*%'.'</totalTime>';
+	$xml .=  '*%'.'<recipeYield>';
+		$xml .=  '*%'.'<value>'.$receita->recipeYield->value.'</value>';
+		$xml .=  '*%'.'<human>'.$receita->recipeYield->human.'</human>';
+	$xml .=  '*%'.'</recipeYield>';
+	$xml .=  '*%'.'<aggregateRating>';
+		$xml .=  '*%'.'<ratingCount>'.$receita->aggregateRating->ratingCount.'</ratingCount>';
+		$xml .=  '*%'.'<ratingValue>'.$receita->aggregateRating->ratingValue.'</ratingValue>';
+		$xml .=  '*%'.'<bestRating>'.$receita->aggregateRating->bestRating.'</bestRating>';
+		$xml .=  '*%'.'<worstRating>'.$receita->aggregateRating->worstRating.'</worstRating>';
+	$xml .=  '*%'.'</aggregateRating>';
+	$xml .=  '*%'.'<images>';
+		foreach ($receita->images as $key => $value) {
+			$xml .=  '*%'.'<image>'.$value->link.'</image>';
+		}
+	$xml .=  '*%'.'</images>';
+	$xml .=  '*%'.'<ingredients>';
+		foreach ($receita->ingredients->default as $key => $value) {
+			$xml .=  '*%'.'<ingredient>'.$value.'</ingredient>';
+		}
+	$xml .=  '*%'.'</ingredients>';
+	$xml .=  '*%'.'<instructions>';
+		foreach ($receita->instructions->default as $key => $value) {
+			$xml .=  '*%'.'<instruction>'.$value.'</instruction>';
+		}
+	$xml .=  '*%'.'</instructions>';
+	$xml .=  '</receita>';
 
-	$xml['receita']['class'] = $receita->class;
-	$xml['receita']['id'] = $receita->id;
-	$xml['receita']['name'] = $receita->name;
-	$xml['receita']['totalTime'] = $receita->totalTime;
-	$xml['receita']['recipeYield'] = $receita->recipeYield;
-	$xml['receita']['aggregateRating'] = $receita->aggregateRating;
-	$xml['receita']['ingredients'] = $receita->ingredients->default;
-	$xml['receita']['instructions'] = $receita->ingredients->default;
-
-
-	$export_XML->array_to_xml($xml);
-	//$xml = $export_XML->array_to_xml($xml);
-
-	echo $xml->asXML();
-
+	$xml = str_replace('<', '&lt;', $xml);
+	$xml = str_replace('>', '&gt;', $xml);
+	$xml = str_replace('*%', '<br>', $xml);
+	echo $xml;
 }elseif(strcmp($tipo,"json") == 0){
 	$receita = $structure->buscaReceita($id);
-	echo json_encode($receita);
-}
-
-
-
-
-
-class Export_XML{
-
-	public function array_to_xml( $data ) {
-
-		$xml_data = new SimpleXMLElement('<?xml version="1.0"?><data></data>');
-
-	    foreach( $data as $key => $value ) {
-	        if( is_array($value) ) {
-	            if( is_numeric($key) ){
-	                $key = 'item'.$key; //dealing with <0/>..<n/> issues
-	            }
-	            $subnode = $xml_data->addChild($key);
-	            array_to_xml($value, $subnode);
-	        } else {
-	           	echo $key."=>".$value."<br>";
-	           	$xml_data->addChild("$key",htmlspecialchars("$value"));
-	        }
-	    }
-	    return $xml_data;
-	}
+	echo  json_encode($receita);
 }

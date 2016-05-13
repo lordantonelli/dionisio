@@ -7,12 +7,8 @@ include('./bin/class/structure.php');
 if(!empty($_REQUEST['id'])){
 	$id = $_REQUEST['id'];
 }else{
-	$id = '146540';
-}
-
-/*else{
 	header("Location: index.php"); 
-}*/
+}
 
 $structure = new Structure;
 
@@ -31,7 +27,7 @@ $structure -> header($receita);
 
 ?>
 
-<section id="detalhes-sec1">
+<section id="section" class="detalhes-sec1">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 blue-grey-border">
@@ -114,21 +110,24 @@ $structure -> header($receita);
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<h3>Comentarios</h3>
 					</div>
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<form id="form-coment" onsubmit="enviaComentario(); return false;">
-							<div class="avaliacao-nova">
-								<p>SELECIONE UMA NOTA:<br>Passe o mouse em cima e selecione a sua nota.</p>
-								<select id="rating-stars">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>
-							</div>
-							<textarea class="form-control" rows="6" placeholder="Deixe seu comentário..."></textarea>
-							<button type="submit" class="btn btn-default">Enviar</button>
-						</form>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php
+					    if( !empty($_COOKIE["session"]) ){ ?>
+							<form id="form-coment" onsubmit="enviaComentario(); return false;">
+								<div class="avaliacao-nova">
+									<p>SELECIONE UMA NOTA:<br>Passe o mouse em cima e selecione a sua nota.</p>
+									<select id="rating-stars">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</div>
+								<textarea class="form-control" rows="6" placeholder="Deixe seu comentário..."></textarea>
+								<button type="submit" class="btn btn-default">Enviar</button>
+							</form>
+						<?php
+						} ?>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php
 						foreach ($receita->comments as $key => $value) {

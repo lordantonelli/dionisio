@@ -1,7 +1,7 @@
 @charset "UTF-8";
-body {
-  font-size: 14px;
-  font-family: "Roboto", sans-serif; }
+html, body {
+  font-size: 12px !important;
+  font-family: "Roboto", sans-serif !important; }
 
 /* -=-=-=-= Barra de busca =-=-=-=- */
 .cf {
@@ -95,18 +95,20 @@ body {
 /* -=-=-=-= Nav Bar =-=-=-=-=- */
 header {
   background-color: #37474f;
+  height: 200px;
   /* nav */ }
   header #header-banner {
     height: auto;
     margin-bottom: 10px; }
     header #header-banner .logo {
       color: #FFFFFF;
-      font-size: 50px;
-      font-family: "Roboto", sans-serif; }
+      font-size: 4.5rem;
+      margin-top: 11px; }
   header .accessibility-language-actions-container {
     height: 25px;
     overflow: hidden;
-    margin-top: 10px; }
+    margin-top: 10px;
+    display: inline-block; }
   header #accessibility {
     font-family: Arial, Helvetica, sans-serif !important;
     margin: 0;
@@ -122,11 +124,17 @@ header {
         color: #dcecff; }
     header #accessibility a {
       color: #dcecff;
-      font-size: 0.7em; }
+      font-size: 0.9rem; }
       header #accessibility a span {
         background-color: #fff;
         color: #3e67b1;
         padding: 0 2px 0 3px; }
+  header #baixa-visao {
+    float: right;
+    padding: 10px 10px 0px 0px; }
+    header #baixa-visao button {
+      font-size: 1.5rem;
+      font-weight: 700; }
   header nav {
     border-top: 0px !important;
     border-bottom: 0px solid transparent !important;
@@ -144,7 +152,7 @@ header {
       header nav.affix #nav-container {
         top: 0px; }
     header nav #nav-container {
-      padding-top: 10px;
+      padding-top: 30px;
       background-color: #37474f;
       border-bottom: 10px solid #78909c;
       transition: border-color 0.3s;
@@ -164,6 +172,7 @@ header {
       header nav #nav-container.doces {
         border-bottom-color: #9c27b0; }
       header nav #nav-container ul {
+        max-height: 50px;
         /* li*/ }
         header nav #nav-container ul li {
           border-radius: 10px 10px 0px 0px;
@@ -175,23 +184,28 @@ header {
           header nav #nav-container ul li a {
             position: relative;
             color: #FFFFFF;
-            font-size: 2rem;
-            font-weight: 700; }
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center; }
             header nav #nav-container ul li a:hover, header nav #nav-container ul li a:focus {
               color: #FFFFFF !important;
               background-color: transparent !important; }
           header nav #nav-container ul li.aves {
             background-color: #ff5722; }
           header nav #nav-container ul li.bolos {
-            background-color: #795548; }
+            background-color: #795548;
+            top: -20px; }
           header nav #nav-container ul li.carnes {
             background-color: #f44336; }
           header nav #nav-container ul li.frutos {
-            background-color: #2196f3; }
+            background-color: #2196f3;
+            top: -20px; }
           header nav #nav-container ul li.massas {
             background-color: #009688; }
           header nav #nav-container ul li.doces {
             background-color: #9c27b0; }
+          header nav #nav-container ul li.receita {
+            top: -20px; }
       header nav #nav-container .form-group .form-control {
         border: 1px solid #61a592;
         border-radius: 0px; }
@@ -206,7 +220,7 @@ section {
     box-shadow: 0px 0px 15px #555; }
     section .container h1, section .container h2, section .container h3 {
       font-family: "Roboto", sans-serif;
-      font-size: 40px;
+      font-size: 3.5rem;
       text-align: center;
       padding: 20px 5px 5px 5px;
       border-bottom: 4px dashed #cfd8dc;
@@ -215,11 +229,14 @@ section {
       border-right: 4px dashed #607d8b; }
     section .container .blue-grey-border-left {
       border-left: 4px dashed #607d8b; }
+    section .container .blue-grey-border-left-right {
+      border-left: 4px dashed #607d8b;
+      border-right: 4px dashed #607d8b; }
 
 /* -=-=-=-= Detalhes =-=-=-=- */
-#detalhes-sec1 .container {
+.detalhes-sec1 .container {
   /* .carousel */ }
-  #detalhes-sec1 .container .carousel {
+  .detalhes-sec1 .container .carousel {
     width: 300px;
     -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -227,131 +244,153 @@ section {
     border-radius: 10px;
     background-color: #f5f5f5;
     display: inline-block; }
-    #detalhes-sec1 .container .carousel .owl-carousel {
+    .detalhes-sec1 .container .carousel .owl-carousel {
       width: 300px; }
-      #detalhes-sec1 .container .carousel .owl-carousel .foto {
+      .detalhes-sec1 .container .carousel .owl-carousel .foto {
         width: 300px;
         height: 225px;
         background-position: center;
         background-size: cover;
         border-radius: 10px 10px 0px 0px; }
-      #detalhes-sec1 .container .carousel .owl-carousel .owl-controls .owl-dots {
+      .detalhes-sec1 .container .carousel .owl-carousel .owl-controls .owl-dots {
         border-top: 5px solid #78909c;
         padding-top: 5px; }
-        #detalhes-sec1 .container .carousel .owl-carousel .owl-controls .owl-dots .owl-dot > span {
+        .detalhes-sec1 .container .carousel .owl-carousel .owl-controls .owl-dots .owl-dot > span {
           width: 20px;
           height: 20px;
           background-color: #90a4ae; }
-        #detalhes-sec1 .container .carousel .owl-carousel .owl-controls .owl-dots .owl-dot.active > span {
+        .detalhes-sec1 .container .carousel .owl-carousel .owl-controls .owl-dots .owl-dot.active > span {
           background-color: #37474f; }
-  #detalhes-sec1 .container .dados-receita {
+  .detalhes-sec1 .container .dados-receita {
     width: calc(100% - 310px);
     min-height: 270px;
     float: right;
     /* .descricao */
     /* Avaliação */ }
-    #detalhes-sec1 .container .dados-receita .descricao {
-      height: 120px; }
-      #detalhes-sec1 .container .dados-receita .descricao .rendimento {
+    .detalhes-sec1 .container .dados-receita .descricao {
+      min-height: 120px; }
+      .detalhes-sec1 .container .dados-receita .descricao .rendimento {
         width: 50%;
         display: inline-block;
-        height: 100px;
+        min-height: 100px;
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-family: "Roboto", sans-serif;
         font-weight: 500; }
-        #detalhes-sec1 .container .dados-receita .descricao .rendimento p {
+        .detalhes-sec1 .container .dados-receita .descricao .rendimento p {
           margin-bottom: 0px; }
-          #detalhes-sec1 .container .dados-receita .descricao .rendimento p.titulo {
+          .detalhes-sec1 .container .dados-receita .descricao .rendimento p.titulo {
             font-size: 1.7rem; }
-      #detalhes-sec1 .container .dados-receita .descricao .tempo {
+      .detalhes-sec1 .container .dados-receita .descricao .tempo {
         width: 49%;
         display: inline-block;
-        height: 100px;
+        min-height: 100px;
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-family: "Roboto", sans-serif;
         font-weight: 500; }
-        #detalhes-sec1 .container .dados-receita .descricao .tempo p {
+        .detalhes-sec1 .container .dados-receita .descricao .tempo p {
           margin-bottom: 0px; }
-          #detalhes-sec1 .container .dados-receita .descricao .tempo p.titulo {
+          .detalhes-sec1 .container .dados-receita .descricao .tempo p.titulo {
             font-size: 1.7rem; }
-    #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd {
+    .detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd {
       width: 49%;
       display: inline-block;
-      height: 100px;
+      min-height: 100px;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-family: "Roboto", sans-serif;
       font-weight: 500; }
-      #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd p {
+      .detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd p {
         margin-bottom: 0px; }
-        #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd p.titulo {
+        .detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-qtd p.titulo {
           font-size: 1.7rem; }
-    #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual {
+    .detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual {
       width: 49%;
       display: inline-block;
-      height: 100px;
+      min-height: 100px;
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-family: "Roboto", sans-serif;
       font-weight: 500; }
-      #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual p {
+      .detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual p {
         margin-bottom: 0px; }
-        #detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual p.titulo {
+        .detalhes-sec1 .container .dados-receita .avaliacao .avaliacao-atual p.titulo {
           font-size: 1.7rem; }
-  #detalhes-sec1 .container #form-coment {
+  .detalhes-sec1 .container ul, .detalhes-sec1 .container ol {
+    font-size: 1.5rem; }
+  .detalhes-sec1 .container #form-coment {
     text-align: right;
     margin: 15px 0px; }
-    #detalhes-sec1 .container #form-coment .avaliacao-nova {
+    .detalhes-sec1 .container #form-coment .avaliacao-nova {
       text-align: center;
       width: 100%;
       min-height: 50px; }
-      #detalhes-sec1 .container #form-coment .avaliacao-nova > p {
+      .detalhes-sec1 .container #form-coment .avaliacao-nova > p {
         font-size: 1.4rem;
         font-weight: 500;
         width: 49%;
         display: inline-block;
         color: #455a64; }
-      #detalhes-sec1 .container #form-coment .avaliacao-nova .br-wrapper {
+      .detalhes-sec1 .container #form-coment .avaliacao-nova .br-wrapper {
         width: 50%;
         display: inline-block; }
-    #detalhes-sec1 .container #form-coment > textarea {
+    .detalhes-sec1 .container #form-coment > textarea {
       width: 100%;
       background-color: #eceff1; }
-    #detalhes-sec1 .container #form-coment > .btn {
+    .detalhes-sec1 .container #form-coment > .btn {
       margin: 5px; }
-  #detalhes-sec1 .container .export {
+  .detalhes-sec1 .container .export {
     margin-top: 50px;
     text-align: right; }
-    #detalhes-sec1 .container .export .btn-export {
+    .detalhes-sec1 .container .export .btn-export {
       background-color: #cfd8dc;
       color: black; }
-  #detalhes-sec1 .container .comentario {
+  .detalhes-sec1 .container .comentario {
     padding: 10px;
     height: 120px;
     border-top: 2px dashed #bdbdbd;
     /* .user */ }
-    #detalhes-sec1 .container .comentario .user {
+    .detalhes-sec1 .container .comentario .user {
       height: 100px;
       width: 300px;
       float: left; }
-      #detalhes-sec1 .container .comentario .user .avatar {
+      .detalhes-sec1 .container .comentario .user .avatar {
         width: 70px;
         float: left; }
-        #detalhes-sec1 .container .comentario .user .avatar img {
+        .detalhes-sec1 .container .comentario .user .avatar img {
           height: 70px; }
-      #detalhes-sec1 .container .comentario .user .dados {
+      .detalhes-sec1 .container .comentario .user .dados {
         width: 220px;
         display: inline-block; }
-    #detalhes-sec1 .container .comentario .text {
+    .detalhes-sec1 .container .comentario .text {
       width: Calc(100% - 300px);
       float: right;
       display: inline-block; }
 
 /* -=-=-=-= Cadastros =-=-=-=- */
-#cadastro-sec1 .container #form-cadastro #input-nome {
-  text-transform: uppercase; }
+.cadastro-sec1 .container #form-login {
+  font-size: 1.3rem; }
+  .cadastro-sec1 .container #form-login .btn {
+    font-weight: 600; }
+.cadastro-sec1 .container #form-cadastro {
+  font-size: 1.3rem; }
+  .cadastro-sec1 .container #form-cadastro #input-nome {
+    text-transform: uppercase; }
+  .cadastro-sec1 .container #form-cadastro #input-cidade {
+    text-transform: uppercase; }
+  .cadastro-sec1 .container #form-cadastro .btn {
+    font-weight: 600;
+    margin-bottom: 20px; }
+
+.cadastro-receita-sec1 .container #form-cadastro-receita {
+  font-size: 1.3rem; }
+  .cadastro-receita-sec1 .container #form-cadastro-receita .input-ingredientes {
+    margin-bottom: 10px; }
+  .cadastro-receita-sec1 .container #form-cadastro-receita .input-preparo {
+    margin-bottom: 10px; }
+  .cadastro-receita-sec1 .container #form-cadastro-receita .btn {
+    margin-bottom: 20px; }
 
 /* -=-=-=-= Cards =-=-=-=- */
 .card-receita {
@@ -370,7 +409,7 @@ section {
   .card-receita a:hover, .card-receita a:focus {
     text-decoration: none; }
   .card-receita .card-tab {
-    height: 30px;
+    min-height: 30px;
     background-color: #78909c;
     background-image: url("../../images/pattern.png");
     background-size: cover;
@@ -379,7 +418,8 @@ section {
     .card-receita .card-tab p {
       font-size: 1.8rem;
       font-weight: 600;
-      color: #FFFFFF; }
+      color: #FFFFFF;
+      margin-bottom: 0px; }
   .card-receita.card-aves {
     background-color: #fbe9e7; }
     .card-receita.card-aves .card-tab {
@@ -455,7 +495,7 @@ section {
 
 .card-grande {
   width: 100%;
-  height: 410px; }
+  min-height: 410px; }
   .card-grande .card-img {
     background-size: cover;
     background-position: center;
@@ -475,27 +515,27 @@ section {
       color: #FFFFFF;
       padding: 5px; }
   .card-grande .card-descricao {
-    height: 180px; }
+    min-height: 180px; }
     .card-grande .card-descricao .titulo {
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-weight: 500;
       text-align: center;
       padding: 10px;
-      height: 85px;
+      min-height: 85px;
       border-bottom: 1px dashed #cfd8dc; }
     .card-grande .card-descricao .descricao {
       width: 100%;
-      height: 95px;
+      min-height: 95px;
       display: inline-table;
       padding: 10px 10px 5px 10px;
-      font-size: 2.5rem;
+      font-size: 2rem;
       font-family: "Roboto", sans-serif;
       font-weight: 500; }
       .card-grande .card-descricao .descricao p {
         margin-bottom: 0px; }
       .card-grande .card-descricao .descricao .rendimento {
         width: 50%;
-        height: 40px;
+        min-height: 40px;
         display: inline-block;
         text-align: center;
         /*border-right: 1px dashed $clr-blue-grey-100;*/
@@ -507,7 +547,7 @@ section {
         text-align: left; }
       .card-grande .card-descricao .descricao .avaliacao {
         width: 100%;
-        height: 20px;
+        min-height: 20px;
         display: inline-block;
         text-align: center;
         margin-bottom: 0px;
@@ -519,7 +559,7 @@ section {
           font-size: 2rem; }
 
 .card-pequeno {
-  height: 200px;
+  min-height: 200px;
   margin-bottom: 10px; }
   .card-pequeno .card-img {
     width: 50%;
@@ -540,24 +580,25 @@ section {
       bottom: 0px;
       background-color: rgba(0, 0, 0, 0.5);
       color: #FFFFFF;
-      padding: 5px; }
+      padding: 5px;
+      overflow: hidden; }
   .card-pequeno .card-descricao {
-    height: 170px;
+    min-height: 170px;
     width: 50%;
     float: right; }
     .card-pequeno .card-descricao .titulo {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 500;
       text-align: center;
       padding: 5px;
-      height: 85px;
+      min-height: 85px;
       border-bottom: 1px dashed #cfd8dc; }
     .card-pequeno .card-descricao .descricao {
       width: 100%;
       padding: 10px 5px 5px 5px;
       display: inline-table;
-      height: 85px;
-      font-size: 1.6rem;
+      min-height: 85px;
+      font-size: 1.4rem;
       font-family: "Roboto", sans-serif;
       font-weight: 500;
       padding: 5px; }
@@ -565,17 +606,16 @@ section {
         margin-bottom: 0px; }
       .card-pequeno .card-descricao .descricao .rendimento {
         width: 100%;
-        height: 20px;
+        min-height: 20px;
         display: inline-block;
         text-align: center;
-        border-right: 1px dashed #cfd8dc;
         margin-bottom: 0px;
         text-align: left; }
         .card-pequeno .card-descricao .descricao .rendimento i {
           font-size: 2.5rem; }
       .card-pequeno .card-descricao .descricao .tempo {
         width: 100%;
-        height: 20px;
+        min-height: 20px;
         display: inline-block;
         text-align: center;
         margin-bottom: 0px;
@@ -584,7 +624,7 @@ section {
           font-size: 2.5rem; }
       .card-pequeno .card-descricao .descricao .avaliacao {
         width: 100%;
-        height: 20px;
+        min-height: 20px;
         display: inline-block;
         text-align: center;
         margin-bottom: 0px;

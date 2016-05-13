@@ -89,62 +89,52 @@ class Structure{
 		    		<!-- <div class="borda-grega"></div> -->
 		    		<div id="header-banner" >
 		    			<div class="container">
-		    				<div class="row-fluid accessibility-language-actions-container">
-			                    <div class="span6 accessibility-container">
-			                        <ul id="accessibility">
-			                            <li>
-			                                <a accesskey="1" href="#content" id="link-conteudo">
-			                                    Ir para o conteúdo
-			                                </a>
-			                            </li>
-			                            <li class="separator">|</li>
-			                            <li>
-			                                <a accesskey="2" href="#navigation" id="link-navegacao">
-			                                    Ir para o menu
-			                                </a>
-			                            </li>
-			                            <li class="separator">|</li>
-			                            <li>
-			                                <a accesskey="3" href="#portal-searchbox" id="link-buscar">
-			                                    Ir para a busca
-			                                </a>
-			                            </li>
-			                            <li class="separator">|</li>
-			                            <li>
-			                                <a accesskey="4" href="#footer" id="link-rodape">
-			                                    Ir para o rodapé
-			                                </a>
-			                            </li>
-			                        </ul>
-			                    </div>
-			                    <!-- fim div.span6 -->
-			                </div>
+		    				<div class="row">
+		    					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				    				<div class="accessibility-language-actions-container">
+					                    <div class="span6 accessibility-container">
+					                        <ul id="accessibility">
+					                            <li>
+					                                <a accesskey="1" href="#section" id="link-conteudo">
+					                                    Ir para o conteúdo
+					                                </a>
+					                            </li>
+					                            <li class="separator">|</li>
+					                            <li>
+					                                <a accesskey="2" href="#navbar-list" id="link-navegacao">
+					                                    Ir para o menu
+					                                </a>
+					                            </li>
+					                            <li class="separator">|</li>
+					                            <li>
+					                                <a accesskey="3" href="#portal-searchbox" id="link-buscar">
+					                                    Ir para a busca
+					                                </a>
+					                            </li>
+					                            <li class="separator">|</li>
+					                            <li>
+					                                <a accesskey="4" href="#footer" id="link-rodape">
+					                                    Ir para o rodapé
+					                                </a>
+					                            </li>
+					                        </ul>
+					                    </div>
+					                    <!-- fim div.span6 -->
+					                </div>
+					            </div>
+					            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				                	<div id="baixa-visao">
+				                		<button onclick="ajustar_fonte('+')">A+</button>
+				                		<button onclick="ajustar_fonte('-')">A-</button>
+				                		<button onclick="contraste()">C</button>
+				                	</div>
+				                </div>
+				            </div>
 		    				<div class="row">
 		    					<div  class="col-md-6">
 		    						<h1 class="logo">Divinas Receitas</h1>
 		    					</div>
 		    					<div class="col-md-6">
-		    					<!--
-		    						<form role="search">
-					    				<div class="input-group">
-					    					<input list="Receitas" type="text" placeholder="Digite o nome da receita..." class="form-control" id="">
-											<datalist id="Receitas">
-												<?php
-													foreach ($_SESSION['receitas'] as $cat => $receita) {
-														if($cat != 'rapidas' && $cat != 'melhores'){
-															foreach ($receita as $key => $value) {
-																echo '<option value="'.trim($value->name).'">';
-															}
-														}
-													}
-												?>
-											</datalist>
-					    					<span class="input-group-btn">
-					    						<button type="submit" class="btn btn-default">Procurar</button>
-					    					</span>
-					    				</div>
-					    			</form>
-					    			-->
 					    			<form class="form-wrapper cf" role="search" id="portal-searchbox">
 								        <input list="Receitas" type="text" title="Digite o nome da receita" placeholder="Digite o nome da receita..." class="col-md-9">
 								        <datalist id="Receitas">
@@ -178,12 +168,22 @@ class Structure{
 				    			<ul class="nav navbar-nav">
 				    				<li class="home"><a href="<?= __SITE_NAME__ ?>">HOME</a></li>
 				    				<li class="aves"><a href="<?= __SITE_NAME__ ?>categoria/aves">AVES</a></li>
-				    				<li class="bolos"><a href="<?= __SITE_NAME__ ?>categoria/bolos" >BOLOS E TORTAS</a></li>
+				    				<li class="bolos"><a href="<?= __SITE_NAME__ ?>categoria/bolos" >BOLOS E<br>TORTAS</a></li>
 				    				<li class="carnes"><a href="<?= __SITE_NAME__ ?>categoria/carnes">CARNES</a></li>
 				    				<li class="doces"><a href="<?= __SITE_NAME__ ?>categoria/doces" >DOCES</a></li>
-				    				<li class="frutos"><a href="<?= __SITE_NAME__ ?>categoria/frutos">FRUTOS DO MAR</a></li>
+				    				<li class="frutos"><a href="<?= __SITE_NAME__ ?>categoria/frutos">FRUTOS<br>DO MAR</a></li>
 				    				<li class="massas"><a href="<?= __SITE_NAME__ ?>categoria/massas">MASSAS</a></li>
 				    			</ul>
+				    			<ul class="nav navbar-nav navbar-right"><?php
+				    			if( !empty($_COOKIE["session"]) ){ ?>
+				    				<li class="receita"><a href="<?= __SITE_NAME__ ?>cadastro_receita"></span> ENVIAR<br>RECEITA</a></li>
+				    				<li><a href="javascript:sessionLogin();"><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR</a></li>
+				    			<?php
+				    			}else{ ?>
+							    	<li><a href="<?= __SITE_NAME__ ?>entrar"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
+							    <?php
+								} ?>
+							    </ul>
 				    		</div><!-- /.navbar-collapse -->
 				    	</div><!-- /container -->
 				    </nav>
@@ -260,7 +260,7 @@ class Structure{
 
 	public function footer($carousel = false){
 	?>
-				<footer>
+				<footer id="footer">
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -277,9 +277,14 @@ class Structure{
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 								<h2>Outros Links</h2>
 								<ul>
-									<li><a href="#">HOME</a></li>
-				    				<li><a href="#">REGISTRAR</a></li>
-				    				<li><a href="#">SOBRE</a></li>
+									<li><a href="<?= __SITE_NAME__ ?>index.php">HOME</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>entrar">ENTRAR</a></li>
+				    				<li><a href="<?= __SITE_NAME__ ?>cadastro">CADASTRAR</a></li><?php
+					    			if( !empty($_COOKIE["session"]) ){ ?>
+					    				<li><a href="<?= __SITE_NAME__ ?>cadastro_receita">ENVIAR RECEITA</a></li>
+					    			<?php
+					    			} ?>
+				    					
 								</ul>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -295,9 +300,14 @@ class Structure{
 
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/moment.min.js"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/js.cookie.js"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/functions.js"></script>
 				<script src="<?= __SITE_NAME__ ?>bin/plugin/jquery_bar_rating/jquery.barrating.min.js"></script>
-				<script src="<?= __SITE_NAME__ ?>bin/js/bootstrap-datepicker.js"></script>
 				<script src="<?= __SITE_NAME__ ?>bin/js/jquery.mask.js"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/bootstrap-datepicker.js"></script>
+				<script src="<?= __SITE_NAME__ ?>bin/js/bootstrap-datepicker.pt-BR.min.js"></script>
+
 
 				<?php
 				if($carousel){ ?>
@@ -324,42 +334,40 @@ class Structure{
 						}); 
 						jQuery('#input-data-nascimento').datepicker({
 							format: "dd/mm/yyyy",
-						    maxtDate: "01/01/2003",
+							endDate: '-13y',
 						    language: "pt-BR"
 						});
-						jQuery('#form-cadastro #input-telefone').mask('(00) 0000-0000');
+
+						
+						jQuery('#form-cadastro #input-data-nascimento').mask('00/00/0000');
+						var SPMaskBehavior = function (val) {
+						  return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+						};
+						var spOptions = {
+						  	onKeyPress: function(val, e, field, options) {
+						      field.mask(SPMaskBehavior.apply({}, arguments), options);
+						    }
+						};
+
+						jQuery('#form-cadastro #input-telefone').mask(SPMaskBehavior, spOptions);
+
 						navColor('aves');
 						navColor('bolos');
 						navColor('carnes');
 						navColor('doces');
 						navColor('frutos');
 						navColor('massas');
+
+						jQuery('.onlyLetter').bind('keyup',function(){ 
+						    var node = $(this);
+						    node.val(node.val().replace(/[^a-zA-Z\Ã\ã\Õ\õ\Í\í\Â\â ]/,'') ); }
+						);
+
+
 					}); 
-					function navColor(classe){
-						
- 
-						hoverOn = function(){
-							jQuery("#nav-container").addClass(classe);
-						}
+					
 
-						hoverOff = function(){
-							jQuery("#nav-container").removeClass(classe);
-						}
-
-						jQuery("#nav-container ul li."+classe).hover(hoverOn, hoverOff);
-					}
-
-					//só aceita letras
-					function soLetras(obj){
-					     var tecla = (window.event) ? event.keyCode : obj.which;
-					     if((tecla > 65 && tecla < 90)
-					         ||(tecla > 97 && tecla < 122))
-					               return true;
-					     else{
-					          if (tecla != 8 && tecla != 32) return false;
-					          else return true;
-					     }
-					}
+					
 				</script>
 
 			</body>
