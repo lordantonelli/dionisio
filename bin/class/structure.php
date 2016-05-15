@@ -53,13 +53,12 @@ class Structure{
 			<head>
 			    <meta charset="utf-8">
 
-			    <title>Divinas receitas</title>
-
-			    <meta content="Receitas Divinas" name="AUTHOR">
+			    <meta content="Guilherme e Humberto" name="AUTHOR">
 			    <meta content="Copyright (c) 2016 by Receitas Divinas" name="COPYRIGHT">
 			    <meta content="pt-br" name="LANGUAGE">			    
 			    <?php
 			    if(!empty($receita->meta)){?>
+			    	<title><?= $receita->meta->og_title ?> - Divinas receitas</title>
 				    <meta content="<?= $receita->meta->og_title ?>" property="og:title">
 				    <meta content="<?= $receita->meta->og_title ?>" name="KEYWORDS">
 				    <meta content="<?= $receita->meta->og_description ?>" property="og:description">
@@ -67,7 +66,10 @@ class Structure{
 				    <meta content="<?= $receita->meta->og_image ?>" property="og:image">
 				    <meta content="<?= $receita->meta->og_type ?>" property="og:type">
 			    <?php
-			    } ?>
+			    }else{ ?>
+			    	<title><?= (!empty($categoria) ? ucfirst($categoria).' - ' : '') ?>Divinas receitas</title>
+			    <?php
+				} ?>
 			    <meta content="Receitas Divinas" property="og:site_name">
 			    <meta content="http://<?= $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>" property="og:url">
 
@@ -176,11 +178,11 @@ class Structure{
 				    			</ul>
 				    			<ul class="nav navbar-nav navbar-right"><?php
 				    			if( !empty($_COOKIE["session"]) ){ ?>
-				    				<li class="receita"><a href="<?= __SITE_NAME__ ?>cadastro_receita"></span> ENVIAR<br>RECEITA</a></li>
-				    				<li><a href="javascript:sessionLogin();"><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR</a></li>
+				    				<li class="receita"><a href="<?= __SITE_NAME__ ?>cadastro_receita">ENVIAR<br>RECEITA</a></li>
+				    				<li><a href="javascript:sessionLogin();"><span class="fa fa-sign-out" aria-hidden="true"></span> SAIR</a></li>
 				    			<?php
 				    			}else{ ?>
-							    	<li><a href="<?= __SITE_NAME__ ?>entrar"><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
+							    	<li><a href="<?= __SITE_NAME__ ?>entrar"><span class="fa fa-sign-in" aria-hidden="true"></span> Entrar</a></li>
 							    <?php
 								} ?>
 							    </ul>
@@ -241,14 +243,14 @@ class Structure{
 					<div class="titulo"><?= $dados->name ?></div>
 					<div class="descricao">
 						<div class="rendimento">
-							<p itemprop="recipeYield" value="<?= $dados->recipeYield->value ?>"><span class="fa fa-cutlery" aria-hidden="true"></span><?= $dados->recipeYield->human ?></p>
+							<p><span class="fa fa-cutlery" aria-hidden="true"></span><span itemprop="recipeYield"><?= $dados->recipeYield->human ?></span></p>
 						</div>
 						<div class="tempo">
-							<p datetime="<?= $dados->totalTime->dateTime ?>" itemprop="totalTime"><span class="fa fa-clock-o" aria-hidden="true"></span><?= $dados->totalTime->human  ?></p>
+							<p><span class="fa fa-clock-o" aria-hidden="true"></span><time datetime="<?= $dados->totalTime->dateTime ?>" itemprop="totalTime"><?= $dados->totalTime->human?></time></p>
 						</div>
 						<div class="avaliacao">
-							<p itemprop="ratingCount"><i class="fa fa-users" aria-hidden="true"></i><?= $dados->aggregateRating->ratingCount ?></p>
-							<p itemprop="ratingValue"><i class="fa fa-star" aria-hidden="true"></i></span><?= $dados->aggregateRating->ratingValue  ?></p>
+							<p><span class="fa fa-users" aria-hidden="true"></span><span itemprop="ratingCount"><?= $dados->aggregateRating->ratingCount ?></span></p>
+							<p><span class="fa fa-star" aria-hidden="true"></span><span itemprop="ratingValue"><?= $dados->aggregateRating->ratingValue ?></span></p>
 						</div>
 					</div>
 				</div>

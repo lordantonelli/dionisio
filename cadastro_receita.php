@@ -24,11 +24,11 @@ $structure -> header();
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<div class="form-group">
 								<label for="input-nome-receita">Nome da receita</label>
-								<input type="text" class="form-control onlyLetter" id="input-nome-receita" placeholder="Nome da receita" required="required" maxlength="10">
+								<input type="text" class="form-control onlyLetter" id="input-nome-receita" placeholder="Nome da receita" required="required" maxlength="10" />
 							</div>
 							<div class="form-group">
 								<label for="input-categoria">Categoria</label>
-								<select class="form-control" name="input-categoria"  required="required"> 
+								<select class="form-control" id="input-categoria" name="input-categoria"  required="required"> 
 									<option value="">Selecione a categoria</option> 
 									<option value="aves">Aves</option> 
 									<option value="bolos">Bolos e tortas</option>
@@ -40,21 +40,21 @@ $structure -> header();
 							</div>
 							<div class="form-group">
 								<label for="input-fotos">Selecione as fotos</label>
-								<input class="form-control" type="file" id="input-fotos" name="input-fotos" multiple required="required">
+								<input class="form-control" type="file" id="input-fotos" name="input-fotos" multiple required="required" />
 							</div>
 							<div class="form-group">
-								<label for="input-ingredientes">Ingredientes</label>
+								<label for="input-ingrediente">Ingredientes</label>
 								<div id="input-ingredientes">
-									<input type="text" class="form-control input-ingredientes" name="input-ingredientes[]" placeholder="Ingrediente 1" required="required"/>
+									<input type="text" class="form-control input-ingredientes" id="input-ingrediente" name="input-ingredientes[]" placeholder="Ingrediente 1" required="required"/>
 								</div>
 								<button type="button" onclick="addItemLista('#input-ingredientes', 'Ingrediente');">Adicionar ingrediente</button>
 							</div>
 							<div class="form-group">
 								<label for="input-preparo">Modo de preparo</label>
-								<div id="input-preparo">
-									<input type="text" class="form-control input-preparo" name="input-preparo[]" placeholder="Passo 1" required="required"/>
+								<div id="input-preparos">
+									<input type="text" class="form-control input-preparo" id="input-preparo" name="input-preparo[]" placeholder="Passo 1" required="required"/>
 								</div>
-								<button type="button" onclick="addItemLista('#input-preparo', 'Passo ');">Adicionar passo</button>
+								<button type="button" onclick="addItemLista('#input-preparos', 'Passo ');">Adicionar passo</button>
 
 							</div>
 						</div>

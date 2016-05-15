@@ -555,7 +555,7 @@ section {
         .card-grande .card-descricao .descricao .avaliacao p {
           display: inline-block;
           width: 49%; }
-        .card-grande .card-descricao .descricao .avaliacao i {
+        .card-grande .card-descricao .descricao .avaliacao ~ span {
           font-size: 2rem; }
 
 .card-pequeno {
@@ -611,7 +611,7 @@ section {
         text-align: center;
         margin-bottom: 0px;
         text-align: left; }
-        .card-pequeno .card-descricao .descricao .rendimento i {
+        .card-pequeno .card-descricao .descricao .rendimento ~ span {
           font-size: 2.5rem; }
       .card-pequeno .card-descricao .descricao .tempo {
         width: 100%;
@@ -620,7 +620,7 @@ section {
         text-align: center;
         margin-bottom: 0px;
         text-align: left; }
-        .card-pequeno .card-descricao .descricao .tempo i {
+        .card-pequeno .card-descricao .descricao .tempo ~ span {
           font-size: 2.5rem; }
       .card-pequeno .card-descricao .descricao .avaliacao {
         width: 100%;
@@ -635,7 +635,7 @@ section {
             float: left; }
           .card-pequeno .card-descricao .descricao .avaliacao p:last-child {
             float: right; }
-        .card-pequeno .card-descricao .descricao .avaliacao i {
+        .card-pequeno .card-descricao .descricao .avaliacao ~ span {
           font-size: 2rem; }
 
 footer {

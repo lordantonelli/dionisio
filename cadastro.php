@@ -62,7 +62,7 @@ $structure -> header();
 						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 							<div class="form-group">
 								<label for="input-estado">Estado:</label>
-								<select class="form-control" name="input-estado"  required="required"> 
+								<select class="form-control" id="input-estado" name="input-estado"  required="required"> 
 									<option value="">Selecione o Estado</option> 
 									<option value="ac">Acre</option> 
 									<option value="al">Alagoas</option> 

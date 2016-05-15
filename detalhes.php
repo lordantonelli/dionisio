@@ -51,26 +51,26 @@ $structure -> header($receita);
 						<div class="dados-receita">
 							<div class="descricao">
 								<div class="rendimento">
-									<i class="fa fa-cutlery" aria-hidden="true"></i>
+									<span class="fa fa-cutlery" aria-hidden="true"></span>
 									<p class="titulo">Rendimento</p>
-									<p itemprop="recipeYield" value="<?= $receita->recipeYield->value ?>"><?= $receita->recipeYield->human ?></p>
+									<p><span itemprop="recipeYield" ><?= $receita->recipeYield->human ?></span></p>
 								</div>
 								<div class="tempo">
-									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									<span class="fa fa-clock-o" aria-hidden="true"></span>
 									<p class="titulo">Preparo</p>
-									<p datetime="<?= $receita->totalTime->dateTime ?>" itemprop="totalTime"><?= $receita->totalTime->human  ?></p>
+									<p><span itemprop="totalTime"><?= $receita->totalTime->human ?></span></p>
 								</div>
 							</div>
 							<div class="avaliacao" itemprop="aggregateRating" itemscope="itemscope" itemtype="http://schema.org/AggregateRating">
 								<div class="avaliacao-qtd">
-									<i class="fa fa-users" aria-hidden="true"></i>
+									<span class="fa fa-users" aria-hidden="true"></span>
 									<p class="titulo">Qtd. Avaliações</p>
-									<p itemprop="ratingCount"><?= $receita->aggregateRating->ratingCount  ?></p>
+									<p><span itemprop="ratingCount"><?= $receita->aggregateRating->ratingCount  ?></span></p>
 								</div>
 								<div class="avaliacao-atual">
-									<i class="fa fa-star" aria-hidden="true"></i>
+									<span class="fa fa-star" aria-hidden="true"></span>
 									<p class="titulo">Avaliação</p>
-									<p itemprop="ratingValue"><?= $receita->aggregateRating->ratingValue  ?></p>
+									<p><span itemprop="ratingValue"><?= $receita->aggregateRating->ratingValue  ?></span></p>
 								</div>
 							</div>
 						</div>
@@ -82,7 +82,7 @@ $structure -> header($receita);
 						<ul>
 						<?php
 							foreach ($receita->ingredients->default as $key => $value) { ?>
-								<li><p itemprop="recipeIngredient"><?= $value ?></p></li>
+								<li><p><span itemprop="recipeIngredient"><?= $value ?></span></p></li>
 							<?php
 							}
 						?>
@@ -96,7 +96,7 @@ $structure -> header($receita);
 						<ol>
 						<?php
 							foreach ($receita->instructions->default as $key => $value) { ?>
-								<li><p itemprop="recipeInstructions"><?= $value ?></p></li>
+								<li><p><span itemprop="recipeInstructions"><?= $value ?></span></p></li>
 							<?php
 							}
 						?>
@@ -135,7 +135,7 @@ $structure -> header($receita);
 							<div class="comentario">
 								<div class="user">
 									<div class="avatar">
-										<img src="<?= __SITE_NAME__ ?>images/user_avatar.png">
+										<img src="<?= __SITE_NAME__ ?>images/user_avatar.png" alt="Foto do usuario <?= $value->userName ?>">
 									</div>
 									<div class="dados">
 										<p class="nome"><?= $value->userName ?></p>
@@ -143,7 +143,7 @@ $structure -> header($receita);
 										<div><?php
 										for($i=0; $i < rand(2,6); $i++){
 										?>
-											<i class="fa fa-star" aria-hidden="true"></i>
+											<span class="fa fa-star" aria-hidden="true"></span>
 										<?php
 										}?>
 										</div>
