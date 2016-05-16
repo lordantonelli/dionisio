@@ -365,6 +365,9 @@ class Structure{
 						    node.val(node.val().replace(/[^a-zA-Z\Ã\ã\Õ\õ\Í\í\Â\â ]/,'') ); }
 						);
 
+						if(Cookies.get('contraste') == 'true'){
+							aplica_contraste(true);
+						}
 
 					}); 
 					

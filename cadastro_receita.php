@@ -52,9 +52,9 @@ $structure -> header();
 							<div class="form-group">
 								<label for="input-preparo">Modo de preparo</label>
 								<div id="input-preparos">
-									<input type="text" class="form-control input-preparo" id="input-preparo" name="input-preparo[]" placeholder="Passo 1" required="required"/>
+									<input type="text" class="form-control input-preparos" id="input-preparo" name="input-preparo[]" placeholder="Passo 1" required="required"/>
 								</div>
-								<button type="button" onclick="addItemLista('#input-preparos', 'Passo ');">Adicionar passo</button>
+								<button type="button" onclick="addItemLista('#input-preparos', 'Passo');">Adicionar passo</button>
 
 							</div>
 						</div>

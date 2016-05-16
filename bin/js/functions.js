@@ -130,13 +130,38 @@ function ajustar_fonte(tipo){
 	});
 }
 
-function contraste(cont){
-	jQuery('*').each(function(){
-	   jQuery(this).css('background-color', 'black');
-	   jQuery(this).css('color', 'white');
-	   jQuery(this).css('border-color', 'white');
+function aplica_contraste(cook){
+console.log(cook);
+	if( cook == true){
+		Cookies.set('contraste', 'true');
 
-	});
+		jQuery('*').each(function(){
+		   jQuery(this).css('background-color', 'black');
+		   jQuery(this).css('color', 'white');
+		   jQuery(this).css('border-color', 'white');
+		});
+
+		jQuery('.card-receita').css('border', '1px solid white');
+		jQuery('#footer').css('border-top', '1px solid white');
+		jQuery('header a').css('color', 'red');
+		jQuery('.logo').css('color', 'yellow');
+		jQuery('header .form-wrapper').css('border', '1px solid white');
+
+	}else{
+		Cookies.set('contraste', 'false');
+		location.reload();
+	}
+}
+
+function contraste(){
+	cook = Cookies.get('contraste');
+
+	if(typeof cook == 'undefined' || cook == 'false'){
+		aplica_contraste(true);
+	}else if(cook == 'true'){
+		aplica_contraste(false);
+	}
+
 }
 
 function validaSenha(senha){
@@ -167,7 +192,7 @@ function sessionLogin(value){
 function addItemLista(id, placeholder){
 	var name = id.replace('#', '');
 	var num = jQuery('.'+name).size()+1;
-	var input = '<input type="text" id="'+name+num+'" class="form-control '+name+'" name="'+name+'[]" placeholder="'+placeholder+' '+num+'" aria-label="'+placeholder+' '+num+'">';
+	var input = '<input type="text" id="'+name+num+'" class="form-control '+name+'" name="'+name+'[]" placeholder="'+placeholder+' '+num+'" aria-label="'+placeholder+' '+num+'" '+(Cookies.get('contraste') == 'true' ? 'style="background-color:black; color: white"' : '')+'>';
 
 
 	jQuery(id).append(input);
